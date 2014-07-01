@@ -13,6 +13,12 @@ $susy: (
   column-width: false,
   global-box-sizing: border-box,
   last-flow: to,
+  debug: (
+    image: hide,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  ),
   use-custom: (
     background-image: true,
     background-options: false,
