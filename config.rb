@@ -1,6 +1,7 @@
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
+require 'breakpoint'
 http_path = "/"
 fonts_dir = "fonts"
 css_dir = "stylesheets/css"

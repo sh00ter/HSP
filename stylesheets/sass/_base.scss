@@ -11,20 +11,11 @@
 
 :required {  }
 
-a {
-  @include transition();
-
-  &:hover {  }
-  &:focus {  }
-  &:active {  }
-  &:visited {  }
-}
-
 address {  }
 
 aside {  }
 
-b, strong { font-weight: $bold; }
+b, strong { font-weight: $boldFont; }
 
 html {
   height: 100%;
@@ -34,9 +25,9 @@ body {
   background: $whiteColor;
   background-size: 15px;
   color: $baseColor;
-  font-family: $fontFamily;
+  font-family: $primaryFontFamily;
   @include rem('font-size', 12px);
-  font-weight: $regular;
+  font-weight: $regularFont;
   height: 100%;
   position: relative;
 }
@@ -53,7 +44,8 @@ button{
   background: none transparent;
   border: 2px solid $actionColor;
   @include rem(font-size, 35px);
-  font-weight: $thin;
+  color: $actionColor;
+  font-weight: $boldFont;
   line-height: 1.8em;
   padding: 0 1em;
   text-transform: uppercase;
@@ -101,8 +93,8 @@ h1, h2, h3, h4, h5, h6 {
   font-feature-settings: "liga", "dlig"; }
 
 // Add your own font-sizez, weight, style here :) this is just for demo :)
-h1 { @include rem(font-size, 50px); font-weight: $thin; text-transform: uppercase; }
-h2 { @include rem(font-size, 30px); font-weight: $bold; }
+h1 { @include rem(font-size, 50px); font-weight: $thinFont; text-transform: uppercase; }
+h2 { @include rem(font-size, 30px); font-weight: $boldFont; }
 h3 { @include rem(font-size, 20px); }
 h4 { @include rem(font-size, 16px); }
 h5 { @include rem(font-size, 14px); }
@@ -150,7 +142,8 @@ u { text-decoration: underline; }
 
 ul, ol { list-style: none; }
 
-/* Custom styles */
+// Custom styles
+// Fixing various corss browser display issues
 aside,
 div,
 dl,
@@ -168,18 +161,4 @@ table {
   clear: both;
   float: left;
   width: 100%;
-}
-
-// For demo purpuse only
-html { height: 100%; }
-
-body {
-  height: 100%;
-  padding: 18% 0;
-  text-align: center;
-
-  * {
-    display: inline-block;
-    margin: 0 0 .5em;
-  }
 }

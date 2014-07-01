@@ -5,16 +5,28 @@ $whiteColor: #fff;
 $themeColor: #1b3147;
 $actionColor: #55B5E8;
 
-// Font Family
-$fontFamily: "Roboto", Arial, Tahoma, sans-serif;
+// Font family
+$primaryFontFamily: "Roboto", Arial, Tahoma, sans-serif;
+$secondaryFontFamily: "Comic Sans";
 
-// Font Weight
-$thin: 200;
-$light: 300;
-$regular: 400;
-$medium: 600;
-$bold: 700;
-$extraBold: 900;
+// Font weight notation convention
+// Primary font weights
+$thinFont: 200;
+$lightFont: 300;
+$regularFont: 400;
+$mediumFont: 600;
+$boldFont: 700;
+$extraBoldFont: 900;
+
+// Responsive breakpoints
+$breakpoints: (
+  smallPhone: 320px 480px,
+  largePhone: 481px 640px,
+  smallTablet: 641px 720px,
+  largeTablet: 720px 1024px,
+  smallDesktop: 1025px 1400px,
+  largeDesktop: 1401px 1600px
+);
 
 
 // ===================================================
