@@ -1,0 +1,89 @@
+// BOX SIZING
+@mixin box-sizing($type: border-box) {
+    -webkit-box-sizing:   $type;
+    -moz-box-sizing:      $type;
+    box-sizing:           $type;
+}
+
+// TRANSITION
+@mixin transition($what: all, $length: .3s) {
+    -moz-transition:    $what $length;
+    -o-transition:      $what $length;
+    -webkit-transition: $what $length;
+    -ms-transition:     $what $length;
+    transition:         $what $length;
+}
+
+// Transform mixin
+@mixin transform($prop) {
+  -webkit-transform: $prop;
+  -moz-transform: $prop;
+  -o-transform: $prop;
+  -ms-transform: $prop;
+  transform: $prop;
+}
+
+// Selection Color
+@mixin selection($bgColor, $fontColor) {
+    ::-moz-selection { background: $bgColor; color: $fontColor; }
+    ::selection { background: $bgColor; color: $fontColor; }
+}
+
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+$baseline-px: 14px;
+
+@mixin rem($property, $px-values) {
+  // Convert the baseline into rems
+  $baseline-rem: $baseline-px / 1rem * 1;
+  // Print the first line in pixel values
+  #{$property}: $px-values;
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-rem; }
+  @else {
+    // Create an empty list that we can dump values into
+    $rem-values: ();
+    @each $value in $px-values {
+      // If the value is zero or not a number, return it
+      @if $value == 0 or type-of( $value ) != "number" {
+        $rem-values: append($rem-values, $value); }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem); } }
+    // Return the property and its list of converted values
+    #{$property}: $rem-values; }
+}
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+  -webkit-animation: $animations;
+  -moz-animation:    $animations;
+  -o-animation:      $animations;
+  animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}

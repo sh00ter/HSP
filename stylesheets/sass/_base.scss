@@ -1,0 +1,185 @@
+// Universal
+* {
+  @include box-sizing();
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased; }
+
+/* General styles */
+// @include selection(#222, #eee);
+
+:required {  }
+
+a {
+  @include transition();
+
+  &:hover {  }
+  &:focus {  }
+  &:active {  }
+  &:visited {  }
+}
+
+address {  }
+
+aside {  }
+
+b, strong { font-weight: $bold; }
+
+html {
+  height: 100%;
+}
+
+body {
+  background: $whiteColor;
+  background-size: 15px;
+  color: $baseColor;
+  font-family: $fontFamily;
+  @include rem('font-size', 12px);
+  font-weight: $regular;
+  height: 100%;
+  position: relative;
+}
+
+blockquote,
+q { quotes: "" ""; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after { content: ""; }
+
+button{
+  background: none transparent;
+  border: 2px solid $actionColor;
+  @include rem(font-size, 35px);
+  font-weight: $thin;
+  line-height: 1.8em;
+  padding: 0 1em;
+  text-transform: uppercase;
+
+  &:hover {
+    background: $actionColor;
+    color: $whiteColor;
+  }
+
+
+  &:active {
+    background: $baseColor;
+    border-color: transparent;
+    color: $actionColor;
+  }
+
+  &:focus { @extend :hover; }
+
+  &:disabled { cursor: no-drop; opacity: .5 }
+}
+
+
+input[type="button"] { @extend button; }
+.button { @extend button; }
+a.button { text-decoration: none; }
+
+::-webkit-input-placeholder { color: $whiteColor; }
+:-moz-placeholder { color: $whiteColor; opacity:  1; }
+::-moz-placeholder { color: $whiteColor; opacity:  1; }
+:-ms-input-placeholder { color: $whiteColor; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+em, i { font-style: italic; }
+
+h1, h2, h3, h4, h5, h6 {
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -ms-font-feature-settings: "liga", "dlig";
+  -webkit-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig"; }
+
+// Add your own font-sizez, weight, style here :) this is just for demo :)
+h1 { @include rem(font-size, 50px); font-weight: $thin; text-transform: uppercase; }
+h2 { @include rem(font-size, 30px); font-weight: $bold; }
+h3 { @include rem(font-size, 20px); }
+h4 { @include rem(font-size, 16px); }
+h5 { @include rem(font-size, 14px); }
+h6 { @include rem(font-size, 14px); }
+
+img { -ms-interpolation-mode: bicubic; }
+
+input {
+
+  &[type="radio"] {  }
+  &[type="checkbox"] {  }
+}
+
+
+select {
+
+  option {  }
+}
+textarea {  }
+
+label {  }
+
+li {  }
+
+nav {  }
+
+p {  }
+
+pre, code { font-family: Monaco, Courier, monospace; }
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+table {
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show; }
+
+u { text-decoration: underline; }
+
+ul, ol { list-style: none; }
+
+/* Custom styles */
+aside,
+div,
+dl,
+fieldset,
+footer,
+form,
+header,
+iframe,
+main,
+nav,
+ul,
+ol,
+section,
+table {
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+// For demo purpuse only
+html { height: 100%; }
+
+body {
+  height: 100%;
+  padding: 18% 0;
+  text-align: center;
+
+  * {
+    display: inline-block;
+    margin: 0 0 .5em;
+  }
+}
