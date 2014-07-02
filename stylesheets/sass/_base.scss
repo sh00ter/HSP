@@ -1,35 +1,46 @@
-// Universal
+// General styles for all elements that must be found in a website :)
+// It is important to start from here before moving to components and grid styles
+// DON'T IGNORE THIS FILE
+
 * {
   @include box-sizing();
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+}
 
-/* General styles */
 // @include selection(#222, #eee);
 
 :required {  }
 
+a {
+  &:hover {  }
+  &:focus { text-decoration: underline; }
+  &:active {  }
+  &:visited {  }
+  &:link {  }
+}
+
 address {  }
 
-aside {  }
-
-b, strong { font-weight: $boldFont; }
+b, strong {
+  font-weight: $boldFont;
+}
 
 html {
+  font-size: 62.5%;
   height: 100%;
 }
 
 body {
-  background: $whiteColor;
-  background-size: 15px;
   color: $baseColor;
   font-family: $primaryFontFamily;
-  @include rem('font-size', 12px);
+  @include rem('font-size', 13px);
   font-weight: $regularFont;
   height: 100%;
   position: relative;
+  width: 100%;
 }
 
 blockquote,
@@ -40,42 +51,51 @@ blockquote:after,
 q:before,
 q:after { content: ""; }
 
-button{
-  background: none transparent;
-  border: 2px solid $actionColor;
-  @include rem(font-size, 35px);
-  color: $actionColor;
-  font-weight: $boldFont;
-  line-height: 1.8em;
-  padding: 0 1em;
-  text-transform: uppercase;
-
-  &:hover {
-    background: $actionColor;
-    color: $whiteColor;
-  }
-
-
-  &:active {
-    background: $baseColor;
-    border-color: transparent;
-    color: $actionColor;
-  }
-
-  &:focus { @extend :hover; }
-
+button {
+  &:hover { }
+  &:active { }
+  &:focus { } // Focus style, very important
   &:disabled { cursor: no-drop; opacity: .5 }
 }
 
+label {  }
 
-input[type="button"] { @extend button; }
-.button { @extend button; }
-a.button { text-decoration: none; }
+input {
+  &[type="checkbox"] {  }
+  &[type="button"] { @extend button; }
+  &[type="radio"] {  }
 
-::-webkit-input-placeholder { color: $whiteColor; }
-:-moz-placeholder { color: $whiteColor; opacity:  1; }
-::-moz-placeholder { color: $whiteColor; opacity:  1; }
-:-ms-input-placeholder { color: $whiteColor; }
+  // Extra types just in case you need them
+  &[type="color"] {  }
+  &[type="date"] {  }
+  &[type="email"] {  }
+  &[type="file"] {  }
+  &[type="number"] {  }
+  &[type="password"] {  }
+  &[type="range"] {  }
+  &[type="reset"] {  }
+  &[type="search"] {  }
+  &[type="tel"] {  }
+  &[type="time"] {  }
+  &[type="url"] {  }
+  // If you need more input types check out
+  // http://www.w3.org/wiki/HTML/Elements/input
+
+  // Focus style, very important
+  &:focus {  }
+}
+
+select {
+  option {  }
+}
+
+textarea {  }
+
+// Set the placeholder color to something different that gray :)
+::-webkit-input-placeholder { color: $baseColor; }
+:-moz-placeholder { color: $baseColor; opacity:  1; }
+::-moz-placeholder { color: $baseColor; opacity:  1; }
+:-ms-input-placeholder { color: $baseColor; }
 
 caption, th, td {
   text-align: left;
@@ -90,38 +110,37 @@ h1, h2, h3, h4, h5, h6 {
   -ms-font-feature-settings: "liga", "dlig";
   -webkit-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig"; }
+  font-feature-settings: "liga", "dlig";
+}
 
-// Add your own font-sizez, weight, style here :) this is just for demo :)
-h1 { @include rem(font-size, 50px); font-weight: $thinFont; text-transform: uppercase; }
-h2 { @include rem(font-size, 30px); font-weight: $boldFont; }
-h3 { @include rem(font-size, 20px); }
-h4 { @include rem(font-size, 16px); }
-h5 { @include rem(font-size, 14px); }
-h6 { @include rem(font-size, 14px); }
+
+// Generate headings based on the Fibonacci row
+// Go crazy!
+@each $header, $values in (
+  h1: 89 $thinFont uppercase,
+  h2: 55 $boldFont uppercase,
+  h3: 21 $mediumFont uppercase,
+  h4: 13 $regularFont normal,
+  h5: 13 $regularFont normal,
+  h6: 13 $regularFont normal) {
+
+  #{$header} {
+    font-size: #{nth($values, 1)}px;
+    font-size: #{nth($values, 1) * .1}rem;
+    font-weight: nth($values, 2);
+    text-transform: nth($values, 3);
+  }
+}
 
 img { -ms-interpolation-mode: bicubic; }
 
-input {
+nav {
 
-  &[type="radio"] {  }
-  &[type="checkbox"] {  }
+  li {  }
+
 }
 
-
-select {
-
-  option {  }
-}
-textarea {  }
-
-label {  }
-
-li {  }
-
-nav {  }
-
-p {  }
+p { margin: 1em 0; }
 
 pre, code { font-family: Monaco, Courier, monospace; }
 
@@ -136,11 +155,18 @@ table {
   border: 0;
   border-collapse: collapse;
   border-spacing: 0;
-  empty-cells: show; }
+  empty-cells: show;
+}
 
-u { text-decoration: underline; }
+u {
+  text-decoration: underline;
+}
 
-ul, ol { list-style: none; }
+ul, ol {
+  list-style: none;
+}
+
+li {  }
 
 // Custom styles
 // Fixing various corss browser display issues

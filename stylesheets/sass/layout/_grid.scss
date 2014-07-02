@@ -1,102 +1,28 @@
 // Main layout styles
 // Use only the tags you need, and remove the unused ones
 // We are using http://susy.oddbird.net/ for responsive grid
-$susy: (
-  flow: ltr,
-  math: fluid,
-  output: float,
-  gutter-position: after,
-  container: auto,
-  container-position: center,
-  columns: 12,
-  gutters: 0,
-  column-width: false,
-  global-box-sizing: border-box,
-  last-flow: to,
-  debug: (
-    image: hide,
-    color: rgba(#66f, .25),
-    output: background,
-    toggle: top right,
-  ),
-  use-custom: (
-    background-image: true,
-    background-options: false,
-    box-sizing: true,
-    clearfix: false,
-    rem: true,
-  )
-);
-
-header {
-  /*
-  V1 mixin
-  @include responsive(
-    display, small block, medium table, large none;
-    font-size, small 14px, medium 20px, large 40px;
-  );
-
-  V2 mixin
-  @include responsive(
-    display, small block; - medium, large - initial value, if not defined it should be inherit
-    font-size, small medium 14px, large 40px; - bp combination
-  );
-  */
-}
-
-
-
-main {
-  .inside {
-    background: blue;
-    @include container($mainWidth); // establish a layout context
-  }
-}
-
-article {
-  @include span(3);
-  background: tan;
-  clear: none;
-  padding: 2%;
-
-  @include breakpoint(map-get($breakpoints, smallDesktop)) {
-    background: pink;
-  }
-
-  // For semantic articles use this :)
-  header {
-
-  }
-
-  section {
-
-  }
-
-  footer {
-
-  }
-
-}
-
-section {
-  @include span(9);
-  background: red;
-  clear: none;
-  padding: 2%;
-}
-
-aside {
-
-}
-
-footer {
-
-}
+// Susy settings can be found and/or edited in stylesheets/sass/_variables.scss
 
 // For fixed width layouts we recomend using a container
 // for example .inside
-
 .inside {
   clear: none;
   float: none;
+  @include container($mainWidth); // establish a layout context
 }
+
+header {  }
+
+main {  }
+
+article {
+  header {  }
+  section {  }
+  footer {   }
+}
+
+section {  }
+
+aside {  }
+
+footer {  }

@@ -1,7 +1,3 @@
 @media print {
-  body {
-    color: $baseColor;
-    font-family: $primaryFontFamily;
-    @include rem('font-size', 12px);
-  }
+  
 }

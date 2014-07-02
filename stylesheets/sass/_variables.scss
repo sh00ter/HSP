@@ -18,14 +18,32 @@ $mediumFont: 600;
 $boldFont: 700;
 $extraBoldFont: 900;
 
-// Responsive breakpoints
-$breakpoints: (
-  smallPhone: 320px 480px,
-  largePhone: 481px 640px,
-  smallTablet: 641px 720px,
-  largeTablet: 720px 1024px,
-  smallDesktop: 1025px 1400px,
-  largeDesktop: 1401px 1600px
+// Susy Settings
+$susy: (
+  flow: ltr,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  container: auto,
+  container-position: center,
+  columns: 12,
+  gutters: 0,
+  column-width: false,
+  global-box-sizing: border-box,
+  last-flow: to,
+  debug: (
+    image: hide,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  ),
+  use-custom: (
+    background-image: true,
+    background-options: false,
+    box-sizing: true,
+    clearfix: false,
+    rem: true,
+  )
 );
 
 

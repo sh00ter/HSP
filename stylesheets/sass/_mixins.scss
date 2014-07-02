@@ -29,31 +29,70 @@
     ::selection { background: $bgColor; color: $fontColor; }
 }
 
-// Baseline, measured in pixels
-// The value should be the same as the font-size value for the html element
-// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
-// then the variable below would be 10px.
-$baseline-px: 14px;
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
 
-@mixin rem($property, $px-values) {
-  // Convert the baseline into rems
-  $baseline-rem: $baseline-px / 1rem * 1;
-  // Print the first line in pixel values
-  #{$property}: $px-values;
-  // If there is only one (numeric) value, return the property/value line for it.
-  @if type-of($px-values) == "number" {
-    #{$property}: $px-values / $baseline-rem; }
-  @else {
-    // Create an empty list that we can dump values into
-    $rem-values: ();
-    @each $value in $px-values {
-      // If the value is zero or not a number, return it
-      @if $value == 0 or type-of( $value ) != "number" {
-        $rem-values: append($rem-values, $value); }
-      @else {
-        $rem-values: append($rem-values, $value / $baseline-rem); } }
-    // Return the property and its list of converted values
-    #{$property}: $rem-values; }
+@mixin rem($property, $values) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value * .1}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}
+
+@mixin media($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+  @if $breakpoint == medium {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint == large {
+    @media (min-width: 1240px) {
+      @content;
+    }
+  }
+}
+
+@mixin responsive-prop($prop, $args... ) {
+  @each $bp in $args {
+    @if length($bp) > 1 {
+      $size  : nth($bp, 1);
+      $value : nth($bp, 2);
+      @include media($size);
+      @if $value != "no" {
+        #{$prop}: $value;
+      }
+    } @else {
+      @if $value != "no" {
+        #{$prop}: $bp;
+      }
+    }
+  }
 }
 
 @mixin animation($animate...) {
