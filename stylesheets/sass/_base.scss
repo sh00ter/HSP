@@ -1,7 +1,8 @@
+// ------------------------------------------------------------------------
 // General styles for all elements that must be found in a website :)
 // It is important to start from here before moving to components and grid styles
 // DON'T IGNORE THIS FILE
-
+// ------------------------------------------------------------------------
 
 * {
   @include box-sizing();
@@ -178,9 +179,7 @@ em, i { font-style: italic; }
 img { -ms-interpolation-mode: bicubic; }
 
 nav {
-
   li {  }
-
 }
 
 p { margin: 1em 0; }
@@ -208,10 +207,8 @@ u {
 ul, ol {
   // ------------------------------------------------------------------------
   // We don't need list-style on every ul or ol
-  // default will be none
-  // It's up to you to set it via custom class
+  // Default will be none
   // ------------------------------------------------------------------------
-
   list-style: none;
 }
 
@@ -219,9 +216,8 @@ li {  }
 
 // ------------------------------------------------------------------------
 // Custom styles
-// Fixing various corss browser display issues
-// and the clearfix issue :)
-// :befor and :after will be used only to do awesome tricks not to fix the lyout :)
+// Fixing various corss browser display issues and the clearfix issue :)
+// :before and :after will be used only to do awesome tricks not to fix the lyout :)
 // ------------------------------------------------------------------------
 aside,
 div,
