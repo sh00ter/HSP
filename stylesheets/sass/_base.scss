@@ -105,14 +105,6 @@ caption, th, td {
 
 em, i { font-style: italic; }
 
-h1, h2, h3, h4, h5, h6 {
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -ms-font-feature-settings: "liga", "dlig";
-  -webkit-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig";
-}
-
 
 // Generate headings based on the Fibonacci row
 // Go crazy!
@@ -129,6 +121,12 @@ h1, h2, h3, h4, h5, h6 {
     font-size: #{nth($values, 1) * .1}rem;
     font-weight: nth($values, 2);
     text-transform: nth($values, 3);
+
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -ms-font-feature-settings: "liga", "dlig";
+    -webkit-font-feature-settings: "liga", "dlig";
+    -o-font-feature-settings: "liga", "dlig";
+    font-feature-settings: "liga", "dlig";
   }
 }
 
