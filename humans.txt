@@ -1,1 +1,24 @@
 /* TEAM */
+Axente Paul
+http://aka.ninja
+Twitter: @AxentePaul
+Location: Cluj-Napoca, Romania.
+
+Bogdan Bâlc
+https://www.linkedin.com/in/bogdanbalc
+Twitter: @bogdanbalc
+Location: Cluj-Napoca, Romania
+
+Ulici Adrian
+http://uliciphotography.com/
+Twitter: @adiulici01
+Location: Cluj-Napoca, Romania
+
+/* THANKS */
+Alina Perde, Ruxandra Barbu
+
+/* SITE */
+Last update: 2014/06/04
+Standards: HTML5, CSS3
+Components: FontAwesome, jQuery, Susy, Breakpoints
+Software: Atom
