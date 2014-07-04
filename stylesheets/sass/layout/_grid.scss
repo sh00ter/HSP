@@ -28,3 +28,34 @@ section {  }
 aside {  }
 
 footer {  }
+
+
+// ------------------------------------------------------------------------
+// Sticky footer ----------------------------------------------------------
+// Use the code below only if you need to ---------------------------------
+// ------------------------------------------------------------------------
+// HTML STRUCTURE ---------------------------------------------------------
+// ------------------------------------------------------------------------
+// <html>
+//   <body>
+//     <div class="page-warp">
+//       <header>
+//       <main>
+//     <footer>
+// ------------------------------------------------------------------------
+/*
+html, body {
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  height: auto;
+  margin-bottom: -100px; // the bottom margin and padding is the
+  padding-bottom: 100px; // negative value of the footer's height
+}
+
+footer {
+  height: 100px;
+}
+*/
