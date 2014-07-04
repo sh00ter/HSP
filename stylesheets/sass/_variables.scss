@@ -1,16 +1,21 @@
-// Colors
+// ------------------------------------------------------------------------
+// Colors variables
+// ------------------------------------------------------------------------
 $baseColor: #222; // Body font used for pharagraphs
 $lightColor: #f9f9f9; // Light gray
 $whiteColor: #fff;
 $themeColor: #1b3147;
 $actionColor: #55B5E8;
 
-// Font family
+// ------------------------------------------------------------------------
+// Font family variables
+// ------------------------------------------------------------------------
 $primaryFontFamily: "Roboto", Arial, Tahoma, sans-serif;
 $secondaryFontFamily: "Comic Sans";
 
-// Font weight notation convention
-// Primary font weights
+// ------------------------------------------------------------------------
+// Font weight notation convention fonteightFont
+// ------------------------------------------------------------------------
 $thinFont: 200;
 $lightFont: 300;
 $regularFont: 400;
@@ -18,7 +23,9 @@ $mediumFont: 600;
 $boldFont: 700;
 $extraBoldFont: 900;
 
+// ------------------------------------------------------------------------
 // Susy Settings
+// ------------------------------------------------------------------------
 $susy: (
   flow: ltr,
   math: fluid,
@@ -47,6 +54,7 @@ $susy: (
 );
 
 
-// ===================================================
+// ------------------------------------------------------------------------
 // Main width, for fixed width application
-$mainWidth: 1200px;
+// ------------------------------------------------------------------------
+$mainSiteWidth: 1200px;
