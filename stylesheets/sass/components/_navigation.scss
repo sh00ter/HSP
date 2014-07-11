@@ -1,0 +1,69 @@
+// ------------------------------------------------------------------------
+// Navigation main styles (top navigation) --------------------------------
+// ------------------------------------------------------------------------
+.section-navigation {
+  background: $baseColor;
+  color: $whiteColor;
+  @include rem(font-size, 12px);
+
+  li {
+    float: left;
+  }
+
+  a {
+    color: $whiteColor;
+    float: left;
+    font-weight: $extraBoldFont;
+    line-height: 2.5em; // based on the font-size
+    padding: 0 1em;
+    text-transform: uppercase;
+
+    &:hover {
+      background: $actionColor;
+      text-decoration: none;
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // Navigation top ---------------------------------------------------------
+  // ------------------------------------------------------------------------
+  &.section-navigation-site {
+    display: none;
+
+    // Responsive styles
+    // ----------------------------------------------------------------------
+    @include breakpoint($bpLargeSmartphones) {
+      display: block;
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // Navigation main menu ---------------------------------------------------
+  // ------------------------------------------------------------------------
+  &.section-navigation-section {
+    background: #ebf0c8;
+    border-bottom: 1px solid #e4e9c1;
+    border-top: 2px solid #d1dd80;
+    @include rem(font-size, 14px);
+
+    // ul { display: none; } // Hide navigation on mobile devices
+
+    a {
+      color: $baseColor;
+      font-weight: $regularFont;
+
+      &:hover {
+        background: #d1dd80;
+        border-color: #d1dd80;
+      }
+    }
+
+    // Responsive styles
+    // ----------------------------------------------------------------------
+    ul {
+      @include breakpoint($bpLargeSmartphones) {
+        display: block;
+      }
+    }
+  }
+}

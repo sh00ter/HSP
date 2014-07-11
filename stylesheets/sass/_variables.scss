@@ -58,3 +58,14 @@ $susy: (
 // Main width, for fixed width application
 // ------------------------------------------------------------------------
 $mainSiteWidth: 1200px;
+
+// ------------------------------------------------------------------------
+// Responsive variables ---------------------------------------------------
+// ------------------------------------------------------------------------
+
+$bpSmartphones: 469px; // Smartphone breaking points
+$bpLargeSmartphones: 699px; // Large smartphones
+$bpTablets: 1024px; // Tablets and landscape large smartphones
+$bpTabletsLarge: 1279px; // Large tablets and old PC's
+$bpDesktopSmall: 1499px; // Small desktops screens & notebooks
+$bpLargeScreen: 1500px; // Large screen

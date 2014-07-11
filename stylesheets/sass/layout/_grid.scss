@@ -13,9 +13,15 @@
   @include container($mainSiteWidth); // establish a layout context
 }
 
-header {  }
+header {
+  &[role="complementary"] {
 
-main {  }
+  }
+}
+
+main {
+  
+}
 
 article {
   header {  }

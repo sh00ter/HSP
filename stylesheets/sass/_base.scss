@@ -13,18 +13,22 @@
 }
 // ------------------------------------------------------------------------
 // Selection mixin, set the background color and the font color
+// Small bugs on Chorme, nothing major and known issue :)
 // ------------------------------------------------------------------------
 // @include selection();
 
 :required {  }
 
 a {
-  &:hover {  }
+  color: $actionColor;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
   &:active {  }
   &:link {  }
 
   &:visited {  }
-  &:focus { /* @extend :hover; */ text-decoration: underline; }
+  &:focus { @extend :hover; }
 }
 
 address {  }
@@ -41,6 +45,7 @@ html {
 body {
   color: $baseColor;
   font-family: $primaryFontFamily;
+  display: table;
   @include rem('font-size', 13px);
   font-weight: $regularFont;
   height: 100%;
