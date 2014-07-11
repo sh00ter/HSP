@@ -46,7 +46,18 @@
     border-top: 2px solid #d1dd80;
     @include rem(font-size, 14px);
 
-    // ul { display: none; } // Hide navigation on mobile devices
+    nav {
+      &:before {
+        color: $baseColor;
+        content: "Menu";
+      }
+
+      &:hover ul {
+        display: block;
+      }
+    }
+
+    ul { display: none; } // Hide navigation on mobile devices
 
     a {
       color: $baseColor;
