@@ -1,0 +1,27 @@
+// ------------------------------------------------------------------------
+// Article body headline (h2) ---------------------------------------------
+// ------------------------------------------------------------------------
+.article-body-headline {
+  @include rem(font-size, 24px);
+  margin: .8em 0;
+
+  h2 {
+    font-size: 1em;
+    font-weight: $regularFont;
+    text-transform: none;
+  }
+
+  // ----------------------------------------------------------------------
+  // Overall rating styles ------------------------------------------------
+  // ----------------------------------------------------------------------
+  &.overall-rating {
+    @include rem(font-size, 12px);
+    margin: 0 0 1.2em;
+
+    h2 {
+      color: #666;
+      font-weight: $extraBoldFont;
+      text-transform: uppercase;
+    }
+  }
+}

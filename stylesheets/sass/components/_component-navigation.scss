@@ -47,10 +47,6 @@
     @include rem(font-size, 14px);
 
     nav {
-      &:before {
-        color: $baseColor;
-        content: "Menu";
-      }
 
       &:hover ul {
         display: block;

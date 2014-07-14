@@ -1,0 +1,19 @@
+// ------------------------------------------------------------------------
+// Promoted product ribbon ------------------------------------------------
+// ------------------------------------------------------------------------
+.product-ribbon {
+  background: transparent no-repeat left top;
+  background-size: 105px 105px;
+  height: 105px;
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  width: 105px;
+  z-index: 3;
+
+  @each $promotionType in (gold, silver, bronze) {
+    &.promoted-#{$promotionType} {
+      background-image: inline-image("svg/promoted-#{$promotionType}.svg");
+    }
+  }
+}
