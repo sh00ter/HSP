@@ -1,3 +1,36 @@
 // ------------------------------------------------------------------------
 // Entity property styles -------------------------------------------------
 // ------------------------------------------------------------------------
+.entity-property {
+  line-height: 1.25;
+  font-family: $secondaryFontFamily;
+
+  &.entity-property-overall-rating {
+    .entity-property-label, .entity-property-label {
+      display: none;
+    }
+
+    .entity-property-container {
+      border-color: #e5e3e3;
+      border-style: solid;
+      @include rem(border-weight, 1px);
+    }
+
+    .entity-property-numeric-score {
+      color: #323232;
+      font-weight: $regularFont;
+      @include rem(font-size, 80px);
+      @include rem(letter-spacing, -2px);
+      line-height: 1em;
+      @include rem(padding, 7px 0 0 10px);
+
+      &:after {
+        color: #666;
+        content: "/10";
+        display: inline;
+        font-size: .5em;
+        vertical-align: baseline;
+      }
+    }
+  }
+}
