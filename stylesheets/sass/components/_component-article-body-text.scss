@@ -1,0 +1,37 @@
+// ------------------------------------------------------------------------
+// Article body text ------------------------------------------------------
+// ------------------------------------------------------------------------
+.article-body-text {
+  .component-content {
+    @include rem(font-size, 14px);
+    @include em(margin, 14, 0 0 20px 0);
+
+    p {
+      color: #303030;
+      font-weight: $regularFont;
+      @include rem(font-size, 14px);
+      line-height: 1.4em;
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // Article quote text -----------------------------------------------------
+  // ------------------------------------------------------------------------
+  &.article-quote {
+    .component-content {
+      p {
+        @include rem(font-size, 14px);
+        @include em(margin, 14, 4px 5px 1px 0);
+
+        &:before {
+          color: #666;
+          content: "\201C";
+          font-family: Georgia;
+          font-size: 5em;
+          margin: 0 .05em 0 0;
+          vertical-align: bottom;
+        }
+      }
+    }
+  }
+}

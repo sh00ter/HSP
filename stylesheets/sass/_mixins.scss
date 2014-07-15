@@ -60,6 +60,28 @@
   #{$property}: $remValues;
 }
 
+// Automatic conversion from px to em
+// @param $baseValue - the relative value from which to compute
+//                     the em values (e.g. font-size)
+@mixin em($property, $baseValue, $values) {
+  $max: length($values);
+  $pxValues: '';
+  $emValues: '';
+  $baseValue: strip-unit($baseValue);
+  $ratio: 1 / $baseValue;
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $emValues: #{$emValues + $value * $ratio}em;
+
+    @if $i < $max {
+      $emValues: #{$emValues + " "};
+    }
+  }
+
+  #{$property}: $emValues;
+}
+
 @mixin media($breakpoint) {
   @if $breakpoint == small {
     @media (max-width: 480px) {
