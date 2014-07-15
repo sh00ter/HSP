@@ -21,7 +21,7 @@
     .component-content {
       p {
         @include rem(font-size, 14px);
-        @include em(margin, 14, 4px 5px 1px 0);
+        @include em(margin, 14, 40px 5px 1px 0);
 
         &:before {
           color: #666;

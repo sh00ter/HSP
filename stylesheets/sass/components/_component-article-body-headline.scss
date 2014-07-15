@@ -17,7 +17,6 @@
   // ----------------------------------------------------------------------
   &.overall-rating {
     @include rem(font-size, 12px);
-    margin: 0 0 1.2em;
     @include em(margin, 12, 0 0 14px);
 
     h2 {
