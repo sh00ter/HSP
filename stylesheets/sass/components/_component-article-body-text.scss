@@ -4,7 +4,7 @@
 .article-body-text {
   .component-content {
     @include rem(font-size, 14px);
-    @include em(margin, 14, 0 0 20px 0);
+    @include rem(margin, 0 0 55px);
 
     p {
       color: #303030;
@@ -62,6 +62,10 @@
   // ------------------------------------------------------------------------
   &.article-body-key-factors {
     h4 {
+      background-image: inline-image("svg/check-mark.svg");
+      background-repeat: no-repeat;
+      background-position: center left;
+      background-size: auto 14px;
       @include rem(font-size, 20px);
       font-weight: $lightFont;
       @include rem(line-height, 32px);
@@ -75,6 +79,19 @@
       line-height: 1.6em;
       margin: 0;
       @include rem(padding, 0 0 0 30px);
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // Article body text version 2 --------------------------------------------
+  // ------------------------------------------------------------------------
+  &.article-body-text-ver-2 {
+    p {
+      @include rem(font-size, 15px);
+      font-weight: $lightFont;
+      line-height: 1.6em;
+      margin: 0;
+      padding: 0;
     }
   }
 }
