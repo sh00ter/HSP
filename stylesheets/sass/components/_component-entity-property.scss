@@ -6,23 +6,19 @@
   font-family: $secondaryFontFamily;
 
   &.entity-property-overall-rating {
-    .entity-property-label, .entity-property-label {
-      display: none;
-    }
 
-    .entity-property-container {
-      border-color: #e5e3e3;
-      border-style: solid;
-      @include rem(border-weight, 1px);
+    .entity-property-label {
+      display: none;
     }
 
     .entity-property-numeric-score {
       color: #323232;
+      float: left;
       font-weight: $regularFont;
       @include rem(font-size, 80px);
       @include rem(letter-spacing, -2px);
       line-height: 1em;
-      @include rem(padding, 7px 0 0 10px);
+      padding: .1em 0 0 0;
 
       &:after {
         color: #666;
