@@ -32,8 +32,8 @@ function notifyLiveReload(event) {
   });
 }
 
-gulp.task('compass', function() {
-  return gulp.src('stylesheets/sass/*.scss')
+gulp.task('styles', function() {
+  return gulp.src('stylesheets/sass/**/*.scss')
     .pipe(compass({
       config_file: './config.rb',
       css: 'stylesheets/css',
@@ -52,5 +52,5 @@ gulp.task('default', function() {
   startExpress();
   startLiveReload();
   gulp.watch(['*.html', 'stylesheets/css/style.css'], notifyLiveReload);
-  gulp.watch('stylesheets/sass/*.scss', ['compass']);
+  gulp.watch('stylesheets/sass/**/*.scss', ['styles']);
 });
