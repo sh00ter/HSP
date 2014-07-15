@@ -65,7 +65,7 @@ article {
 
 
       @include breakpoint($bpLargeSmartphones) {
-        @include span(8);
+        @include span(7.5);
         @include display-table-cell;
       }
     }
@@ -75,7 +75,7 @@ article {
       @include rem(padding, 20px);
 
       @include breakpoint($bpLargeSmartphones) {
-        @include span(4);
+        @include span(4.5);
         @include display-table-cell;
         @include rem(padding, 40px);
       }
@@ -103,7 +103,13 @@ section {  }
 
 aside {  }
 
-footer {  }
+footer {
+  color: #303030;
+  @include rem(font-size, 12px);
+  @include em(padding, 12px, 20px 0);
+  text-align: center;
+
+}
 
 
 // ------------------------------------------------------------------------
