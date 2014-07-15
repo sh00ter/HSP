@@ -1,0 +1,21 @@
+// ------------------------------------------------------------------------
+// Call to action component -----------------------------------------------
+// ------------------------------------------------------------------------
+.call-to-action-box {
+  .call-to-action-box-title {
+    font-weight: $lightFont;
+    @include rem(font-size, 30px);
+    @include em(line-height, 30px, 50px);
+  }
+
+  // Extend buttons styles for the Go to Store button
+  .call-to-action-box-btn {
+    @extend button;
+    float: right;
+  }
+
+  // Hidden elements
+  .call-to-action-box-info {
+    display: none;
+  }
+}

@@ -18,17 +18,22 @@
   // Article quote text -----------------------------------------------------
   // ------------------------------------------------------------------------
   &.article-quote {
+    @include rem(margin, 20px 0 0);
+    @include rem(padding, 0 110px 0 0);
+
     .component-content {
       p {
         @include rem(font-size, 14px);
-        @include em(margin, 14, 40px 5px 1px 0);
+        margin: 0;
 
         &:before {
           color: #666;
           content: "\201C";
           font-family: Georgia;
-          font-size: 5em;
-          margin: 0 .05em 0 0;
+          @include em(font-size, 14px, 70px);
+          @include em(margin, 70px, 0 5px 0 0);
+          position: relative;
+          top: .2em;
           vertical-align: bottom;
         }
       }

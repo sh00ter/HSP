@@ -1,0 +1,48 @@
+// ------------------------------------------------------------------------
+// Author component (product page default) --------------------------------
+// ------------------------------------------------------------------------
+.author {
+  border-bottom: 1px solid #e5e3e3;
+  @include rem(margin, 0 0 20px);
+  position: relative;
+  @include rem(padding, 0 0 20px);
+
+  .author-byline {
+    @include rem(font-size, 12px);
+    @include em(line-height, 12px, 21px);
+    @include rem(padding, 0 138px 0 0);
+
+    a {
+      color: #323232;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    span {
+      color: #666666;
+      float: left;
+      width: 100%;
+    }
+  }
+
+  .author-image-container {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    @include rem(width, 148px);
+
+    img {
+      float: left;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  // Hidden elements
+  .author-social-container {
+    display: none;
+  }
+}

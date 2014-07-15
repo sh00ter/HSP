@@ -62,8 +62,23 @@ q:before,
 q:after { content: ""; }
 
 button {
-  &:hover { }
-  &:active { }
+  background: $themeColor;
+  border: 1px solid #ddd;
+  color: $whiteColor;
+  font-weight: $boldFont;
+  @include rem(font-size, 22px);
+  @include em(line-height, 22px, 48px);
+  @include em(padding, 22px, 0 20px);
+  text-transform: uppercase;
+
+  &:hover {
+    background: darken($themeColor, 10%);
+    text-decoration: none;
+  }
+
+  &:active {
+    background: darken($themeColor, 30%);
+  }
 
   // ------------------------------------------------------------------------
   // Do not ignore the focus styles
@@ -72,7 +87,7 @@ button {
   // A cool trick to solve the :focus styles for most elements is
   // to extend the hover styles @extend :hover;
   // ------------------------------------------------------------------------
-  &:focus { /* @extend :hover; */ }
+  &:focus { @extend :hover; }
 
   // ------------------------------------------------------------------------
   &:disabled { cursor: no-drop; opacity: .5 }
