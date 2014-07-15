@@ -14,6 +14,14 @@
     float: none;
     @include container($mainSiteWidth); // establish a layout context
   }
+
+  &.secondary-size {
+    @include breakpoint($bpLargeSmartphones) {
+      clear: none;
+      float: none;
+      @include container($secondarySiteWidth); // establish a layout context
+    }
+  }
 }
 
 header {
@@ -27,17 +35,6 @@ main {
 }
 
 article {
-
-  &.product-info {
-
-    .inside {
-
-      @include breakpoint($bpLargeSmartphones) {
-        width: $secondarySiteWidth;
-      }
-    }
-  }
-
   header {  }
   section {  }
   footer {   }
@@ -48,8 +45,12 @@ article {
 // ------------------------------------------------------------------------
 .carousel-action-block {
   background: #eee;
-  @include rem(padding, 20px 0);
+  @include rem(padding, 20px);
   @include rem(margin, 0 0 40px);
+
+  @include breakpoint($bpTablets) {
+    @include rem(padding, 20px 0);
+  }
 
   .inside {
     background: $whiteColor;
@@ -88,14 +89,22 @@ article {
 // ------------------------------------------------------------------------
 .article-content {
   .content {
-    @include rem(padding, 0 35px 0 0);
-    @include span(7.5);
+    @include rem(padding, 0 20px);
+
+    @include breakpoint($bpLargeSmartphones) {
+      @include rem(padding, 0 35px 0 0);
+      @include span(7.5);
+    }
   }
 
   aside {
-    clear: none;
-    @include rem(padding, 40px);
-    @include span(4.5);
+    @include rem(padding, 0 20px);
+
+    @include breakpoint($bpLargeSmartphones) {
+      clear: none;
+      @include rem(padding, 40px);
+      @include span(4.5);
+    }
   }
 }
 

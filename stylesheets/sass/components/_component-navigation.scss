@@ -19,7 +19,7 @@
     text-transform: uppercase;
 
     &:hover {
-      background: $actionColor;
+      background-color: $actionColor;
       text-decoration: none;
     }
   }
@@ -47,29 +47,63 @@
     @include rem(font-size, 14px);
 
     nav {
+      position: relative;
 
-      &:hover ul {
-        display: block;
+      &:before {
+        background: transparent inline-image("svg/menu-icon.svg") no-repeat 10px center;
+        background-size: auto 30%;
+        content: "Show Menu";
+        float: right;
+        @include rem(padding, 0 10px 0 33px);
+        text-transform: uppercase;
+        @extend a;
+        width: auto !important;
+      }
+
+      &:hover {
+        ul {
+          border-top: 1px solid #d1dd80;
+          display: block;
+        }
       }
     }
 
     ul { display: none; } // Hide navigation on mobile devices
 
+    li {
+      width: 100%;
+    }
+
     a {
       color: $baseColor;
       font-weight: $regularFont;
+      width: 100%;
 
       &:hover {
-        background: #d1dd80;
+        background-color: #d1dd80;
         border-color: #d1dd80;
       }
     }
 
     // Responsive styles
     // ----------------------------------------------------------------------
-    ul {
-      @include breakpoint($bpLargeSmartphones) {
+    @include breakpoint($bpLargeSmartphones) {
+      nav {
+        &:before {
+          display: none;
+        }
+
+        &:hover {
+          ul { border: 0 none; }
+        }
+      }
+
+      ul {
         display: block;
+      }
+
+      li {
+        width: auto;
       }
     }
   }

@@ -4,6 +4,11 @@
 .headline {
   @include rem(font-size, 36px);
   @include em(margin, 36px, 18px 0);
+  @include rem(padding, 0 20px);
+
+  @include breakpoint($bpLargeSmartphones) {
+    padding: 0;
+  }
 
   h1 {
     font-size: 1em;
