@@ -62,6 +62,10 @@
   // ------------------------------------------------------------------------
   &.article-body-key-factors {
     h4 {
+      background-image: inline-image("svg/check-mark.svg");
+      background-repeat: no-repeat;
+      background-position: center left;
+      background-size: auto 14px;
       @include rem(font-size, 20px);
       font-weight: $lightFont;
       @include rem(line-height, 32px);
