@@ -5,6 +5,9 @@
   line-height: 1.25;
   font-family: $secondaryFontFamily;
 
+  // ------------------------------------------------------------------------
+  // Overall rating styles --------------------------------------------------
+  // ------------------------------------------------------------------------
   &.entity-property-overall-rating {
     border-bottom: 1px solid #e5e3e3;
 
@@ -27,6 +30,40 @@
         display: inline;
         font-size: .5em;
         vertical-align: baseline;
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // Product tech. specs ----------------------------------------------------
+  // ------------------------------------------------------------------------
+  &.entity-property-specs {
+    .entity-property-container {
+      border-top: 1px solid #e8e8e8;
+      color: #707173;
+      display: table;
+      @include rem(font-size, 12px);
+      @include rem(padding, 15px 0 20px);
+      table-layout: fixed;
+      text-decoration: none;
+
+      span {
+        display: table-cell;
+        vertical-align: top;
+        width: 50%;
+
+        &.entity-property-label {
+          font-weight: $boldFont;
+          text-transform: uppercase;
+        }
+
+        &.entity-property-string {
+          @include em(font-size, 12px, 14px);
+          @include em(line-heihgt, 14px, 20px);
+        }
+
+        // Hide the last label
+        &:last-child { display: none; }
       }
     }
   }

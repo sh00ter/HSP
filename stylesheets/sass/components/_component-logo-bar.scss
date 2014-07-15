@@ -1,0 +1,36 @@
+// ------------------------------------------------------------------------
+// Site logo styles -------------------------------------------------------
+// ------------------------------------------------------------------------
+.logo-bar {
+  clear: none;
+  width: auto;
+
+  .component-content {
+    @include rem(margin, 33px 0);
+    @include rem(padding, 0 0 0 15px);
+  }
+
+  .logo-bar-image-container {
+    float: left;
+    position: relative;
+    @include rem(width, 222px);
+
+    img {
+      float: left;
+      height: auto;
+      max-width: 100%;
+      width: auto;
+    }
+
+    // Text under the logo
+    &:after {
+      color: #323232;
+      content: "Recommended by our trusted experts";
+      float: left;
+      @include rem(font-size, 13px);
+      @include em(line-height, 13px, 20px);
+      letter-spacing: -0.2px;
+      width: 100%;
+    }
+  }
+}

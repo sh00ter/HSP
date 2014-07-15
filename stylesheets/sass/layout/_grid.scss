@@ -89,13 +89,13 @@ article {
 .article-content {
   .content {
     @include rem(padding, 0 35px 0 0);
-    @include span(7);
+    @include span(7.5);
   }
 
   aside {
     clear: none;
     @include rem(padding, 40px);
-    @include span(5);
+    @include span(4.5);
   }
 }
 
