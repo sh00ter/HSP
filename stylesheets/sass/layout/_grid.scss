@@ -49,6 +49,7 @@ article {
 .carousel-action-block {
   background: #eee;
   @include rem(padding, 20px 0);
+  @include rem(margin, 0 0 40px);
 
   .inside {
     background: $whiteColor;
@@ -76,9 +77,25 @@ article {
       @include breakpoint($bpLargeSmartphones) {
         @include span(4);
         @include display-table-cell;
-        @include rem(padding, 40px 50px);
+        @include rem(padding, 40px);
       }
     }
+  }
+}
+
+// ------------------------------------------------------------------------
+// Article content --------------------------------------------------------
+// ------------------------------------------------------------------------
+.article-content {
+  .content {
+    @include rem(padding, 0 35px 0 0);
+    @include span(7);
+  }
+
+  aside {
+    clear: none;
+    @include rem(padding, 40px);
+    @include span(5);
   }
 }
 

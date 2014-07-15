@@ -34,4 +34,42 @@
       }
     }
   }
+
+  // ------------------------------------------------------------------------
+  // Article verdict --------------------------------------------------------
+  // ------------------------------------------------------------------------
+  &.article-body-text-verdict {
+    .component-content {
+      @include rem(margin, 0 0 55px);
+    }
+
+    p {
+      @include rem(font-size, 20px);
+      font-weight: $lightFont;
+      @include rem(line-height, 30px);
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // Article key factors ----------------------------------------------------
+  // ------------------------------------------------------------------------
+  &.article-body-key-factors {
+    h4 {
+      @include rem(font-size, 20px);
+      font-weight: $lightFont;
+      @include rem(line-height, 32px);
+      @include em(margin, 24px, 20px 0 0);
+      @include rem(padding, 0 0 0 30px);
+    }
+
+    p {
+      @include rem(font-size, 14px);
+      font-weight: $lightFont;
+      line-height: 1.6em;
+      margin: 0;
+      @include rem(padding, 0 0 0 30px);
+    }
+  }
 }
