@@ -150,7 +150,7 @@
 }
 
 // Display table-cell mixin
-@mixin display-table-cell(){
+@mixin display-table-cell() {
   clear: none;
   float: none;
   display: table-cell;

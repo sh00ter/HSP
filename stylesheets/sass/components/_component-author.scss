@@ -45,4 +45,52 @@
   .author-social-container {
     display: none;
   }
+
+  // ------------------------------------------------------------------------
+  // Comparison page author -------------------------------------------------
+  // ------------------------------------------------------------------------
+  &.author-compare-ver-4 {
+    border: none;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+
+    .author-image-container {
+      right: auto;
+      left: 200px;
+      width: 210px;
+    }
+
+    .author-body {
+      position: absolute;
+      bottom: 30px;
+      left: 400px;
+      @include rem(padding-left, 16px);
+    }
+
+    .author-name {
+      font-weight: $boldFont;
+    }
+
+    .author-name::before {
+      content: "By";
+      font-weight: $regularFont;
+      padding-right: 5px;
+    }
+
+    .author-name::after {
+      content: ",";
+      font-weight: $regularFont;
+      padding-right: 5px;
+    }
+
+    .author-role {
+      color: #666;
+      float: none;
+      width: auto;
+      font-weight: $regularFont;
+    }
+  }
 }
