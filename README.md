@@ -3,7 +3,15 @@ susy-starter-pack
 
 Susy SCSS starter pack
 
-run compass watch --sourcemap to generate CSS
+Setup project
+
+run bundle install
+run npm install -g gulp
+run npm install
+
+run gulp to start the express webserver with compass and livereload
+
+#run compass watch --sourcemap to generate CSS
 
 ## CTags
 
