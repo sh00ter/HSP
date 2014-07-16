@@ -30,6 +30,21 @@
   &.section-navigation-site {
     display: none;
 
+    li {
+
+      // TGM logo for the first navigation item
+      &:first-child {
+        a {
+          background-image: inline-image("small_logo.png");
+          background-position: center;
+          background-repeat: no-repeat;
+          color: transparent;
+          overflow: hidden;
+          width: 2.5em;
+        }
+      }
+    }
+
     // Responsive styles
     // ----------------------------------------------------------------------
     @include breakpoint($bpLargeSmartphones) {

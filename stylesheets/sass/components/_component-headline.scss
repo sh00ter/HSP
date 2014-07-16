@@ -14,4 +14,17 @@
     font-size: 1em;
     font-weight: $lightFont;
   }
+
+  // ----------------------------------------------------------------------
+  // Headline large (Meet our experst) ------------------------------------
+  // ----------------------------------------------------------------------
+  &.headline_experts {
+    color: #1f1f1f;
+    @include rem(font-size, 76px);
+    @include em(margin, 76px, 36px 0 20px);
+
+    h1 {
+      line-height: .8em;
+    }
+  }
 }

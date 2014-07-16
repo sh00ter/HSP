@@ -1,0 +1,18 @@
+// ------------------------------------------------------------------------
+// Standfirst component ---------------------------------------------------
+// ------------------------------------------------------------------------
+.standfirst {
+  @include rem(font-size, 14px);
+
+  h2 {
+    font-size: 1em;
+    font-weight: $regularFont;
+    text-transform: none;
+  }
+
+  @include breakpoint($bpTablets) {
+    clear: none;
+    @include span(4.5);
+    float: left;
+  }
+}

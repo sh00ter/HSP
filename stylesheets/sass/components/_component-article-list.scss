@@ -1,0 +1,98 @@
+// ------------------------------------------------------------------------
+// Article list ------------------------------------------------------
+// ------------------------------------------------------------------------
+.article-list {
+  .component-content {
+    @include rem(margin, 40px 0 0);
+
+    @include breakpoint($bpTablets) {
+      @include rem(margin, 100px 0 0);
+    }
+  }
+
+  li {
+    float: left;
+    text-align: center;
+    @include rem(margin-bottom, 40px);
+    width: 100%;
+
+    @include breakpoint($bpLargeSmartphones) {
+      margin: 0 1% 40px 0;
+      width: 49%;
+
+      &:nth-child(2n){ margin-right: 0; }
+      &:nth-child(2n+1) { clear: both; }
+    }
+
+    @include breakpoint($bpTablets) {
+      margin: 0 1% 60px 0;
+      width: 32.3%;
+
+      // Overwrite the $bpLargeSmartphones breakpoint styles
+      &:nth-child(2n){ margin-right: 1%; }
+      &:nth-child(2n+1) { clear: none; }
+      // ----------------------------------------------------
+
+      &:nth-child(3n){ margin-right: 0; }
+      &:nth-child(3n+1) { clear: both; }
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .item-category {
+    color: #666;
+    @include rem(font-size, 12px);
+  }
+
+  .item-title {
+    color: #323232;
+    @include rem(font-size, 26px);
+    font-weight: $lightFont;
+    @include em(line-height, 26px, 35px);
+    text-transform: none;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  .item-image {
+    background: #f5f5f5;
+    border: 1px solid #e6e6e6;
+    float: left;
+    display: table;
+    @include rem(height, 260px);
+    @include rem(margin, 10px 0);
+    overflow: hidden;
+    width: 100%;
+
+    span {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    img {
+      display: inline-block;
+      height: auto;
+      max-width: 100%;
+      vertical-align: middle;
+      width: auto;
+    }
+  }
+
+  p {
+    color: #323232;
+    float: left;
+    @include rem(font-size, 13px);
+    margin: 0;
+    text-align: left;
+    width: 100%;
+  }
+}
