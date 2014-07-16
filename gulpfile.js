@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     compass = require('gulp-compass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    plumber = require('gulp-plumber');
 
 var EXPRESS_PORT = 4000;
 var EXPRESS_ROOT = __dirname;
@@ -34,6 +35,7 @@ function notifyLiveReload(event) {
 
 gulp.task('styles', function() {
   return gulp.src('stylesheets/sass/**/*.scss')
+    .pipe(plumber())
     .pipe(compass({
       config_file: './config.rb',
       css: 'stylesheets/css',
