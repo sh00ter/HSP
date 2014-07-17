@@ -68,6 +68,7 @@
       bottom: 30px;
       left: 400px;
       @include rem(padding-left, 16px);
+      width: auto;
     }
 
     .author-name {
@@ -75,15 +76,13 @@
     }
 
     .author-name::before {
-      content: "By";
+      content: "By ";
       font-weight: $regularFont;
-      padding-right: 5px;
     }
 
     .author-name::after {
-      content: ",";
+      content: ", ";
       font-weight: $regularFont;
-      padding-right: 5px;
     }
 
     .author-role {
