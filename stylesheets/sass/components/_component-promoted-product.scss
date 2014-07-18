@@ -16,4 +16,18 @@
       background-image: inline-image("svg/promoted-#{$promotionType}.svg");
     }
   }
+
+  // ------------------------------------------------------------------------
+  // Gold ribbon for compare table ------------------------------------------
+  // ------------------------------------------------------------------------
+  @at-root .compare-table {
+    // Gold ribbon
+    .promoted-gold {
+      background-size: 60px;
+      height: 60px;
+      right: -4px;
+      top: -4px;
+      width: 60px;
+    }
+  }
 }

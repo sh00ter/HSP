@@ -1,0 +1,203 @@
+// ------------------------------------------------------------------------
+// Compare table component ------------------------------------------------
+// ------------------------------------------------------------------------
+.compare-table {
+  font-family: $secondaryFontFamily;
+
+  .compare-products-list {
+    border-color: #e5e3e3;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    display: table;
+  }
+
+  .compare-product-item {
+    display: table-cell;
+    vertical-align: top;
+    width: 100px;
+
+    &:nth-child(even) {
+      background: #ededed;
+    }
+
+    // Definition terms column
+    &.compare-definition-terms {
+      @include rem(width, 200px);
+    }
+
+    // Definition terms
+    .compare-definition-term {
+      border-color: #e5e3e3;
+      border-style: solid;
+      border-width: 0 0 1px 1px;
+      color: #707173;
+      @include rem(font-size, 11px);
+      @include rem(max-height, 64px);
+      @include rem(padding, 25px 10px 25px 25px);
+      font-weight: $extraBoldFont;
+      text-transform: uppercase;
+
+      &.definition-header {
+        line-height: 307px;
+        min-height: 330px;
+        @include rem(padding, 0 10px 15px 25px);
+      }
+    }
+
+    // Table cell
+    .product-definition-definition {
+      border-color: #e5e3e3;
+      border-style: solid;
+      border-width: 0 0 1px 1px;
+      @include rem(height, 64px);
+      padding: 10px 12px;
+      position: relative;
+      text-align: center;
+
+      // Table header
+      &.compare-product-header {
+        height: auto;
+        max-height: 330px;
+        padding: 10px 0 25px 0;
+      }
+    }
+
+    @for $goldNo from 2 through 4 {
+      &.gold:nth-child(#{$goldNo}) {
+        $promotedColor: lighten(#f9e6b8, ($goldNo - 2) * 4%);
+        background: $promotedColor;
+
+        .compare-product-header {
+          background: $promotedColor;
+        }
+      }
+    }
+
+    .definition-header, .compare-product-header {
+      border-style: solid solid double solid;
+      border-width: 0 0 3px 1px;
+      border-bottom-color: #acacac;
+      background: #fff;
+    }
+
+    // Product name
+    .product-name {
+      color: #323232;
+      font-size: 12px;
+      font-weight: $regularFont;
+      float: left;
+      height: 32px;
+      @include em(line-height, 12px, 16px);
+      overflow: hidden;
+      padding: 0 25px;
+      width: 100%;
+    }
+
+    // Product image from the header of the table
+    .product-image {
+      @include rem(height, 50px);
+      @include rem(margin, 14px 0 17px);
+      max-width: 70%;
+      width: auto;
+    }
+
+    // Product price
+    .product-price {
+      font-family: $primaryFontFamily;
+      font-size: 20px;
+      font-weight: $lightFont;
+      float: left;
+      width: 100%;
+    }
+
+    // Buy button
+    .product-buy-button {
+      background: #0797af;
+      color: #fff;
+      float: left;
+      font-size: 12px;
+      font-weight: $regularFont;
+      height: 30px;
+      line-height: 30px;
+      margin: 8px 20% 6px;
+      width: 60%;
+      text-transform: uppercase;
+
+      &:hover {
+        background: #000;
+        text-decoration: none;
+      }
+    }
+
+    // More info button
+    .product-more-info {
+      color: #323232;
+      float: left;
+      font-size: 11px;
+      width: 100%;
+    }
+
+    // Overall rating
+    .product-overall-rating {
+      color: #0797af;
+      font-size: 30px;
+      font-weight: $lightFont;
+      margin: 35px 0 0;
+      font-family: $primaryFontFamily;
+      float: left;
+      width: 100%;
+
+      i {
+        color: #666;
+        font-size: .4em;
+        font-weight: 300;
+        font-style: normal;
+      }
+    }
+
+    // Check mark values
+    .check-mark {
+      background-image: inline-image("svg/check-mark.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 14px auto;
+      height: 44px;
+      padding: 0;
+    }
+
+    // Numeric values styling
+    .entity-value-numeric {
+      font-size: 20px;
+      font-weight: 300;
+
+      span {
+        color: #666;
+        float: left;
+        font-size: .6em;
+        width: 100%;
+      }
+    }
+
+    // Product position styling
+    .product-position {
+      color: #666;
+      @include rem(font-size, 14px);
+      font-weight: $extraBoldFont;
+      float: left;
+      height: 15px;
+      margin: 0 0 10px;
+      width: 100%;
+    }
+
+    // Product position generation
+    @for $i from 2 through 12 {
+      &:nth-child(#{$i}) {
+        .product-position {
+          &:before {
+            content: "#{$i - 1}";
+          }
+        }
+      }
+    }
+  }
+}

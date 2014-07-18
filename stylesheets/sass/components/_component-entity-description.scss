@@ -12,6 +12,7 @@
     font-weight: 200;
     @include rem(font-size, 14px);
     @include em(line-height, 14px, 22px);
+    text-align: justify;
   }
 
   // ------------------------------------------------------------------------
