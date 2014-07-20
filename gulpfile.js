@@ -1,58 +1,96 @@
 var gulp = require('gulp'),
+    gutil = require('gulp-util'),
+    express = require('express'),
+    livereload = require('connect-livereload'),
+    reload = require('gulp-livereload'),
+    path = require('path'),
     compass = require('gulp-compass'),
     autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
+    csso = require('gulp-csso'),
+    cmq = require('gulp-combine-media-queries'),
     rename = require('gulp-rename'),
-    plumber = require('gulp-plumber');
+    plumber = require('gulp-plumber'),
+    duration = require('gulp-duration'),
+    runSequence = require('run-sequence'),
+    watch = require('gulp-watch'),
+    size = require('gulp-size'),
+    args = require('yargs').argv,
+    // when using 'gulp --theme shop' or 'gulp watch --theme shop'
+    // var theme can be used to setup the theme paths
+    // if the theme argument is not used the theme var defaults to _scaffold
+    // not used at the moment
+    theme = args.theme || '_scaffold';
 
 var EXPRESS_PORT = 4000;
 var EXPRESS_ROOT = __dirname;
-var LIVERELOAD_PORT = 35729;
+var LIVERELOAD_PORT = 4002;
+var sources = {
+  sass: 'stylesheets/sass/**/*.scss',
+  css: ['stylesheets/css/**/*.css', '!stylesheets/css/**/*.min.css', '!stylesheets/css/**/*.css.map'],
+  js: ['js/**/*.js', '!js/**/*.min.js'],
+  watch: ['**/*.html', 'stylesheets/css/style.css', 'js/**/*.js']
+};
+var destinations = {
+  html: 'dist/',
+  js: 'dist/js/',
+  css: 'dist/css/'
+};
 
-function startExpress() {
-  var express = require('express');
+
+gulp.task('serve', function() {
   var app = express();
-  app.use(require('connect-livereload')());
+  // insert livereload script so we don't need the browser plugin
+  app.use(livereload({ port: LIVERELOAD_PORT }));
   app.use(express.static(EXPRESS_ROOT));
   app.listen(EXPRESS_PORT);
+});
+
+refresh = function(event) {
+  var fileName = path.relative(EXPRESS_ROOT, event.path);
+  
+  gutil.log(gutil.colors.magenta(fileName), gutil.colors.cyan('changed'));
+  
+  gulp.src(fileName, { read: false })
+      .pipe(reload(LIVERELOAD_PORT));
 }
 
-var tinylr;
-function startLiveReload() {
-  tinylr = require('tiny-lr')();
-  tinylr.listen(LIVERELOAD_PORT);
-}
-
-function notifyLiveReload(event) {
-  var fileName = require('path').relative(EXPRESS_ROOT, event.path);
-
-  tinylr.changed({
-    body: {
-      files: [fileName]
-    }
-  });
-}
-
-gulp.task('styles', function() {
-  return gulp.src('stylesheets/sass/**/*.scss')
+gulp.task('styles:sass', function() {
+  return gulp.src(sources.sass)
+    .pipe(size({ title: 'sass size' }))
     .pipe(plumber())
     .pipe(compass({
       config_file: './config.rb',
       css: 'stylesheets/css',
       sass: 'stylesheets/sass'
     }))
-    .pipe(gulp.dest('stylesheets/css'))
-    .pipe(autoprefixer(["last 1 version", "> 1%", "ie 9", "ie 8"], { cascade: true }))
-    .pipe(gulp.dest('stylesheets/css'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(minifycss())
-    .pipe(gulp.dest('stylesheets/css'));
+    .pipe(duration('sass files compiled'));
 });
 
-gulp.task('default', function() {
+gulp.task('styles:opt', function() {
+  return gulp.src(sources.css)
+    .pipe(autoprefixer(["last 1 version", "> 1%", "ie 9", "ie 8"], { cascade: true }))
+    .pipe(size({ title: 'css size' }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(cmq())
+    .pipe(csso())
+    .pipe(gulp.dest('stylesheets/css'))
+    .pipe(size({ title: 'optimized css size' }));
+});
+
+gulp.task('styles', function() {
+  return runSequence('styles:sass', 'styles:opt');
+});
+
+// gulp watch || gulp watch --theme [theme-name]
+// run express server with livereload and compass
+gulp.task('watch', ['serve', 'styles:sass'], function() {
+  gulp.watch(sources.sass, ['styles:sass']);
+  gulp.watch(sources.watch, refresh);
+});
+
+// gulp || gulp --theme [theme-name]
+// build SCSS
+gulp.task('default', ['styles'], function() {
   // place code for your default task here
-  startExpress();
-  startLiveReload();
-  gulp.watch(['*.html', 'stylesheets/css/style.css'], notifyLiveReload);
-  gulp.watch('stylesheets/sass/**/*.scss', ['styles']);
+  
 });
