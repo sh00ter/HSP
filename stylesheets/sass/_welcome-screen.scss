@@ -1,0 +1,71 @@
+// ------------------------------------------------------------------------
+// Welcome screen styles --------------------------------------------------
+// ------------------------------------------------------------------------
+.landing {
+  background: darken(#0A5080, 20%);
+}
+
+.welcome-screen {
+  height: auto;
+  min-height: 100%;
+  padding: 10%;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+
+  h1 {
+    color: $whiteColor;
+    display: inline-block;
+    @include rem(font-size, 56px);
+    margin: 0 0 1em;
+    font-weight: $extraBoldFont;
+    text-shadow:  0 1px 0 $baseColor, 1px 0 0 $baseColor;
+  }
+}
+
+.frames {
+
+  li {
+    display: inline-block;
+    margin: 0 1% 2%;
+    width: 20%;
+  }
+
+  a {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    border-radius: 2px;
+    float: left;
+    font-size: 0;
+    height: 150px;
+    line-height: 0;
+    text-indent: -9999px;
+    width: 100%;
+    @include transition();
+
+    &:hover {
+      box-shadow: 0 0 60px rgba(#60BFFF, .9);
+      @include transform(scale(1.2));
+    }
+
+    @each $pageType in (home, compare, product) {
+      &.thumbnail-#{$pageType} {
+        background-image: inline-image("page-thumbnails/#{$pageType}.jpg");
+      }
+    }
+  }
+}
+
+.go-crazy-bro {
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
+  svg {
+    left: 0;
+    position: absolute;
+    opacity: .5;
+  }
+}
