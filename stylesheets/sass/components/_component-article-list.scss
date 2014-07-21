@@ -13,12 +13,13 @@
   li {
     float: left;
     text-align: center;
+    margin: 0 2%;
     @include rem(margin-bottom, 40px);
-    width: 100%;
+    width: 96%;
 
     @include breakpoint($bpLargeSmartphones) {
-      margin: 0 1% 40px 0;
-      width: 49%;
+      margin: 0 1% 40px;
+      width: 48%;
 
       &:nth-child(2n) {
         margin-right: 0;

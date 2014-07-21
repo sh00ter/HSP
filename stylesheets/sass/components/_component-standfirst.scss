@@ -15,14 +15,28 @@
     @include span(4.5);
     float: left;
   }
-}
 
-// ------------------------------------------------------------------------
-// Comparison page standfirst ---------------------------------------------
-// ------------------------------------------------------------------------
-.comparison .standfirst {
-  color: #323232;
-  float: none;
-  @include rem(padding, 20px 40px 0 416px);
-  width: 100%;
+  // ------------------------------------------------------------------------
+  // Home page standfirst ---------------------------------------------------
+  // ------------------------------------------------------------------------
+  &.standfirst-experts {
+    @include rem(margin, 0 0 20px);
+    @include rem(padding, 0 20px);
+    text-align: center;
+
+    @include breakpoint($bpLargeSmartphones) {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // Comparison page standfirst ---------------------------------------------
+  // ------------------------------------------------------------------------
+  @at-root .comparison .standfirst {
+    color: #323232;
+    float: none;
+    width: 100%;
+  }
 }
