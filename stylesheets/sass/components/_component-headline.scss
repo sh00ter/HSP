@@ -57,6 +57,7 @@
     }
 
     @include breakpoint($bpTablets) {
+      @include rem(font-size, 76px);
       @include span(8.5);
       @include rem(margin, 0 0 20px);
       float: right;
