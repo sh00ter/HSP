@@ -13,8 +13,6 @@ run 'gulp watch' to start the express webserver with compass and livereload
 run 'gulp' to build SCSS
 add '--theme [theme-name]' to the 2 commands to set a custom theme, other than '_scaffold' (not used at the moment)
 
-#run compass watch --sourcemap to generate CSS
-
 ## CTags
 
 The project uses CTags to enable autocomplete in your favorite editor. A .ctags file was created in the root of the project to enable autocomplete over .scss files (it indexes mixins and variables).
