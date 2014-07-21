@@ -6,7 +6,7 @@
 
 * {
   @include box-sizing();
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -17,21 +17,35 @@
 // ------------------------------------------------------------------------
 // @include selection();
 
-:required {  }
+:required {
+
+}
 
 a {
   color: $actionColor;
   text-decoration: none;
 
-  &:hover { text-decoration: underline; }
-  &:active {  }
-  &:link {  }
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active {
 
-  &:visited {  }
-  &:focus { @extend :hover; }
+  }
+  &:link {
+
+  }
+
+  &:visited {
+
+  }
+  &:focus {
+    @extend :hover;
+  }
 }
 
-address {  }
+address {
+
+}
 
 b, strong {
   font-weight: $boldFont;
@@ -54,12 +68,16 @@ body {
 }
 
 blockquote,
-q { quotes: "" ""; }
+q {
+  quotes: "" "";
+}
 
 blockquote:before,
 blockquote:after,
 q:before,
-q:after { content: ""; }
+q:after {
+  content: "";
+}
 
 button {
   background: $themeColor;
@@ -87,48 +105,97 @@ button {
   // A cool trick to solve the :focus styles for most elements is
   // to extend the hover styles @extend :hover;
   // ------------------------------------------------------------------------
-  &:focus { @extend :hover; }
+  &:focus {
+    @extend :hover;
+  }
 
   // ------------------------------------------------------------------------
-  &:disabled { cursor: no-drop; opacity: .5 }
+  &:disabled {
+    cursor: no-drop;
+    opacity: .5;
+  }
 }
 
-label {  }
+label {
+
+}
 
 input {
-  &[type="checkbox"] {  }
-  &[type="button"] { @extend button; }
-  &[type="radio"] {  }
+  &[type="checkbox"] {
+
+  }
+  &[type="button"] {
+    @extend button;
+  }
+  &[type="radio"] {
+
+  }
 
   // ------------------------------------------------------------------------
   // Extra input types just in case you need them
   // ------------------------------------------------------------------------
-  &[type="color"] {  }
-  &[type="date"] {  }
-  &[type="email"] {  }
-  &[type="file"] {  }
-  &[type="number"] {  }
-  &[type="password"] {  }
-  &[type="range"] {  }
-  &[type="reset"] {  }
-  &[type="search"] {  }
-  &[type="tel"] {  }
-  &[type="time"] {  }
-  &[type="url"] {  }
+  &[type="color"] {
+
+  }
+  &[type="date"] {
+
+  }
+  &[type="email"] {
+
+  }
+  &[type="file"] {
+
+  }
+  &[type="number"] {
+
+  }
+  &[type="password"] {
+
+  }
+  &[type="range"] {
+
+  }
+  &[type="reset"] {
+
+  }
+  &[type="search"] {
+
+  }
+  &[type="tel"] {
+
+  }
+  &[type="time"] {
+
+  }
+  &[type="url"] {
+
+  }
 
   // ------------------------------------------------------------------------
   // If you need more input types check out the link below
   // http://www.w3.org/wiki/HTML/Elements/input
   // ------------------------------------------------------------------------
-  &:focus { /* @extend :hover; */ }
+  &:focus {
+    /* @extend :hover; */
+  }
 }
 
 // ------------------------------------------------------------------------
 // Set the input placeholder color to something different that gray :)
-::-webkit-input-placeholder { color: $baseColor; }
-:-moz-placeholder { color: $baseColor; opacity:  1; }
-::-moz-placeholder { color: $baseColor; opacity:  1; }
-:-ms-input-placeholder { color: $baseColor; }
+::-webkit-input-placeholder {
+  color: $baseColor;
+}
+:-moz-placeholder {
+  color: $baseColor;
+  opacity: 1;
+}
+::-moz-placeholder {
+  color: $baseColor;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: $baseColor;
+}
 
 select {
   // ------------------------------------------------------------------------
@@ -138,12 +205,20 @@ select {
   -moz-appearance: none;
   appearance: none;
 
-  option {  }
+  option {
 
-  &:hover {  }
-  &:active {  }
+  }
 
-  &:focus { /* @extend :hover; */ }
+  &:hover {
+
+  }
+  &:active {
+
+  }
+
+  &:focus {
+    /* @extend :hover; */
+  }
 }
 
 textarea {
@@ -163,7 +238,9 @@ caption, th, td {
   vertical-align: middle;
 }
 
-em, i { font-style: italic; }
+em, i {
+  font-style: italic;
+}
 
 // ------------------------------------------------------------------------
 // Generate headings based on the Fibonacci row
@@ -196,15 +273,23 @@ em, i { font-style: italic; }
   }
 }
 
-img { -ms-interpolation-mode: bicubic; }
-
-nav {
-  li {  }
+img {
+  -ms-interpolation-mode: bicubic;
 }
 
-p { margin: 1em 0; }
+nav {
+  li {
 
-pre, code { font-family: Monaco, Courier, monospace; }
+  }
+}
+
+p {
+  margin: 1em 0;
+}
+
+pre, code {
+  font-family: Monaco, Courier, monospace;
+}
 
 pre {
   white-space: pre;
@@ -232,7 +317,9 @@ ul, ol {
   list-style: none;
 }
 
-li {  }
+li {
+
+}
 
 // ------------------------------------------------------------------------
 // Custom styles

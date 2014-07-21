@@ -84,7 +84,9 @@
       }
     }
 
-    ul { display: none; } // Hide navigation on mobile devices
+    ul {
+      display: none; // Hide navigation on mobile devices
+    }
 
     li {
       width: 100%;
@@ -110,7 +112,9 @@
         }
 
         &:hover {
-          ul { border: 0 none; }
+          ul {
+            border: 0 none;
+          }
         }
       }
 

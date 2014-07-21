@@ -35,9 +35,15 @@ main {
 }
 
 article {
-  header {  }
-  section {  }
-  footer {   }
+  header {
+
+  }
+  section {
+
+  }
+  footer {
+
+  }
 
   // ------------------------------------------------------------------------
   // Comparison page --------------------------------------------------------
@@ -132,16 +138,19 @@ article {
   }
 }
 
-section {  }
+section {
 
-aside {  }
+}
+
+aside {
+
+}
 
 footer {
   color: #303030;
   @include rem(font-size, 12px);
   @include em(padding, 12px, 20px 0);
   text-align: center;
-
 }
 
 

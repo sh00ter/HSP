@@ -63,7 +63,9 @@
         }
 
         // Hide the last label
-        &:last-child { display: none; }
+        &:last-child {
+          display: none;
+        }
       }
     }
   }
