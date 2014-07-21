@@ -22,7 +22,7 @@
     }
 
     span {
-      color: #666666;
+      color: #666;
       float: left;
       width: 100%;
     }
@@ -50,39 +50,80 @@
   // Comparison page author -------------------------------------------------
   // ------------------------------------------------------------------------
   &.author-compare-ver-4 {
-    border: none;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    position: absolute;
+    border: 0 none;
+    @include rem(margin, 20px 0 0);
+    @include rem(padding, 0 20px);
+
+    @include breakpoint($bpLargeSmartphones) {
+      border-right: 1px solid #e5e3e3;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      @include rem(padding, 0 20px);
+      position: absolute;
+      @include span(2);
+    }
+
+    @include breakpoint($bpTablets) {
+      border: 0 none;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      padding: 0 0 0 10%;
+      position: absolute;
+      @include span(3.5);
+    }
 
     .author-image-container {
-      right: auto;
-      left: 200px;
-      width: 210px;
+      float: left;
+      position: static;
+      @include rem(width, 100px);
+
+      @include breakpoint($bpLargeSmartphones) {
+        width: 100%;
+      }
+
+      @include breakpoint($bpTablets) {
+        width: 100%;
+      }
     }
 
     .author-body {
-      position: absolute;
-      bottom: 30px;
-      left: 400px;
-      @include rem(padding-left, 16px);
+      border: 0 none;
+      clear: none;
       width: auto;
+
+      @include breakpoint($bpLargeSmartphones) {
+        position: static;
+        width: 100%;
+
+        .author-byline {
+          @include rem(margin, 10px 0 0);
+          padding: 0;
+        }
+      }
+
+      @include breakpoint($bpTablets) {
+        @include rem(bottom, 30px);
+        position: absolute;
+        @include rem(right, -110px);
+        width: auto;
+      }
     }
 
     .author-name {
       font-weight: $boldFont;
-    }
 
-    .author-name::before {
-      content: "By ";
-      font-weight: $regularFont;
-    }
+      &:before {
+        content: "By";
+        font-weight: $regularFont;
+        margin: 0 .3em 0 0;
+      }
 
-    .author-name::after {
-      content: ", ";
-      font-weight: $regularFont;
+      &:after {
+        @extend :before;
+        content: ",";
+      }
     }
 
     .author-role {

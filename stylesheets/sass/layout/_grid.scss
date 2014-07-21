@@ -24,27 +24,7 @@
   }
 }
 
-header {
-  &[role="complementary"] {
-
-  }
-}
-
-main {
-
-}
-
 article {
-  header {
-
-  }
-  section {
-
-  }
-  footer {
-
-  }
-
   // ------------------------------------------------------------------------
   // Comparison page --------------------------------------------------------
   // ------------------------------------------------------------------------
@@ -56,7 +36,16 @@ article {
 
       .inside {
         position: relative;
-        min-height: 250px;
+
+        @include breakpoint($bpLargeSmartphones) {
+          @include rem(min-heihgt, 160px);
+          @include rem(padding, 20px 0);
+        }
+
+        @include breakpoint($bpTablets) {
+          @include rem(min-heihgt, 250px);
+          @include rem(padding, 50px 0 55px);
+        }
       }
     }
   }
@@ -65,7 +54,7 @@ article {
 // ------------------------------------------------------------------------
 // Experts block ----------------------------------------------------------
 // ------------------------------------------------------------------------
-.experts-box {
+.wide-section {
   background: #f5f5f5;
   border-bottom: 1px solid darken(#f5f5f5, 7%);
 }
@@ -136,14 +125,6 @@ article {
       @include span(4.5);
     }
   }
-}
-
-section {
-
-}
-
-aside {
-
 }
 
 footer {

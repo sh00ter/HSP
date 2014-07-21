@@ -37,6 +37,18 @@
   @at-root .comparison .standfirst {
     color: #323232;
     float: none;
+    @include rem(padding, 0 20px);
     width: 100%;
+
+    @include breakpoint($bpLargeSmartphones) {
+      @include span(10);
+      float: right;
+    }
+
+    @include breakpoint($bpTablets) {
+      @include span(8.5);
+      float: right;
+      padding: 0;
+    }
   }
 }

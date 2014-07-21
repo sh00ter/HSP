@@ -9,8 +9,8 @@
 
   .article-body-text {
     font-family: $secondaryFontFamily;
-    font-weight: 200;
     @include rem(font-size, 14px);
+    font-weight: 200;
     @include em(line-height, 14px, 22px);
     text-align: justify;
   }
@@ -19,14 +19,18 @@
   // Comparison page entity descriptions ------------------------------------
   // ------------------------------------------------------------------------
   &.compare-entity-description {
-    margin-top: 45px;
+    margin: 0;
+
+    @include breakpoint($bpTablets) {
+      @include rem(margin, 45px 0 0);
+    }
 
     .component-content {
       margin: 0;
     }
 
     .compare-entity-description-wrapper {
-      @include rem(padding, 0 120px 45px 0);
+      @include rem(padding, 0 20px 45px);
 
       @include breakpoint($bpLargeSmartphones) {
         clear: none;
@@ -39,6 +43,7 @@
 
       @include breakpoint($bpTablets) {
         clear: none;
+        @include rem(padding, 0 120px 45px 0);
         @include span(4);
 
         &:nth-child(2n+1) {

@@ -28,6 +28,7 @@
       line-height: .8em;
     }
 
+    // Responsive styles
     @include breakpoint($bpLargeSmartphones) {
       @include rem(font-size, 76px);
       @include em(margin, 76px, 36px 0 20px);
@@ -40,12 +41,28 @@
   // ------------------------------------------------------------------------
   &.headline_version-4 {
     color: #323232;
-    @include rem(font-size, 72px);
+    @include rem(font-size, 36px);
     line-height: 1em;
-    margin: 0;
+    @include rem(margin, 20px 0 10px);
+    @include rem(padding, 0 20px);
+
+    // Responsive styles
+    @include breakpoint($bpLargeSmartphones) {
+      @include rem(font-size, 52px);
+      @include rem(margin, 20px 0 10px);
+      text-align: left;
+      @include span(10);
+      float: right;
+    }
+
+    @include breakpoint($bpTablets) {
+      @include span(8.5);
+      @include rem(margin, 0 0 20px);
+      float: right;
+    }
 
     h1 {
-      font-weight: $regularFont;
+      font-weight: $lightFont;
     }
   }
 }
