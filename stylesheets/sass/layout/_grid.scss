@@ -38,12 +38,12 @@ article {
         position: relative;
 
         @include breakpoint($bpLargeSmartphones) {
-          @include rem(min-heihgt, 160px);
+          @include rem(min-height, 160px);
           @include rem(padding, 20px 0);
         }
 
         @include breakpoint($bpTablets) {
-          @include rem(min-heihgt, 250px);
+          @include rem(min-height, 250px);
           @include rem(padding, 50px 0 55px);
         }
       }
