@@ -50,6 +50,7 @@
     @include breakpoint($bpLargeSmartphones) {
       @include rem(font-size, 52px);
       @include rem(margin, 20px 0 10px);
+      padding: 0;
       text-align: left;
       @include span(10);
       float: right;
