@@ -75,6 +75,7 @@
     }
 
     &:hover {
+      background-position: center -100px;
       box-shadow: 0 0 60px rgba(#60BFFF, .9);
       @include transform(scale(1.2));
 
