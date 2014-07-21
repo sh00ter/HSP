@@ -41,13 +41,46 @@
     font-size: 0;
     height: 150px;
     line-height: 0;
+    position: relative;
     text-indent: -9999px;
     width: 100%;
     @include transition();
 
+    span {
+      background: rgba($baseColor, .9);
+      border-radius: 2px;
+      color: $whiteColor;
+      display: none;
+      @include rem(font-size, 20px);
+      font-weight: $boldFont;
+      left: 0;
+      line-height: 2em;
+      position: absolute;
+      text-align: center;
+      text-indent: 0;
+      text-transform: uppercase;
+      top: -50px;
+      width: 100%;
+
+      &:before {
+        border-color: rgba($baseColor, .9) transparent transparent transparent;
+        border-style: solid;
+        border-width: 8px;
+        bottom: -16px;
+        content: "";
+        left: 50%;
+        margin-left: -8px;
+        position: absolute;
+      }
+    }
+
     &:hover {
       box-shadow: 0 0 60px rgba(#60BFFF, .9);
       @include transform(scale(1.2));
+
+      span {
+        display: block;
+      }
     }
 
     @each $pageType in (home, compare, product) {
