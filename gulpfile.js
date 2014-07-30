@@ -13,6 +13,10 @@ var gulp = require('gulp'),
     duration = require('gulp-duration'),
     runSequence = require('run-sequence'),
     watch = require('gulp-watch'),
+    inject = require('gulp-inject'),
+    replace = require('gulp-replace'),
+    insert = require('gulp-insert'),
+    inlineCss = require('gulp-inline-css'),
     size = require('gulp-size'),
     args = require('yargs').argv,
     // when using 'gulp --theme shop' or 'gulp watch --theme shop'
@@ -49,16 +53,24 @@ gulp.task('serve', function() {
 
 refresh = function(event) {
   var fileName = path.relative(EXPRESS_ROOT, event.path);
-  
+
   gutil.log(gutil.colors.magenta(fileName), gutil.colors.cyan('changed'));
-  
+
   gulp.src(fileName, { read: false })
       .pipe(reload(LIVERELOAD_PORT));
 }
 
 gulp.task('styles:sass', function() {
-  return gulp.src(sources.sass)
+  return gulp.src(sources.sass, { base: './stylesheets/sass' })
     .pipe(size({ title: 'sass size' }))
+    // inject responsive function into sass files
+    // .pipe(insert.wrap('@include r(', ')'))
+    // .pipe(insert.append(');'))
+    // .pipe(gulp.dest('stylesheets/sass'))
+    // replace code from sass files if necessary
+    // .pipe(replace('@include r(', ''))
+    // .pipe(replace(',);', ''))
+    // .pipe(gulp.dest('stylesheets/sass'))
     .pipe(plumber())
     .pipe(compass({
       config_file: './config.rb',
@@ -93,7 +105,7 @@ gulp.task('styles:cache', function() {
       sass: 'stylesheets/sass'
     }))
     .pipe(duration('sass files compiled'));
-  
+
   return watch({ glob: '.css-cache/**/*.css' }, function(files) {
     return files
       .pipe(plumber())
@@ -118,5 +130,5 @@ gulp.task('watch', ['serve', 'styles:sass'], function() {
 // build SCSS
 gulp.task('default', ['styles'], function() {
   // place code for your default task here
-  
+
 });
