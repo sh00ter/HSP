@@ -1,18 +1,12 @@
-// $('.nav-toggle').click(function() {
-// 	$(this).toggleClass('active');
-// 	$(this).siblings('ul').toggleClass('active');
-// });
+// Something to make you come back ^.^
+window.onblur = function () {
+  document.title = "You no love me no more...";
+}
 
-// var listFullHeight = function(element) {
-// 	var elem = $(element),
-// 		wh = $(window).height(),
-// 		headHeight = $('header').height(),
-// 		finalHeight = wh - headHeight;
+window.onfocus = function () {
+  document.title = "Some title here";
+}
 
-// 	elem.children().height(finalHeight);
-// 	// elem.children('li:nth-child(2), li:nth-child(3), li:nth-child(n+8)').height(finalHeight / 2);
-// 	console.log(wh, headHeight, finalHeight);
-
-// };
-
-// listFullHeight('.article-list');
+// this function should be optimised :P
+// it works for now
+// this is just a reminder :P
