@@ -1,0 +1,244 @@
+// ------------------------------------------------------------------------
+// General styles for all elements that must be found in a website :)
+// It is important to start from here before moving to components and grid styles
+// DON'T IGNORE THIS FILE
+// ------------------------------------------------------------------------
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+// ------------------------------------------------------------------------
+// Selection mixin, set the background color and the font color
+// Small bugs on Chorme, nothing major and known issue :)
+// ------------------------------------------------------------------------
+// @include selection();
+
+:required {  }
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+  &:active {  }
+  &:link {  }
+
+  &:visited {  }
+  &:focus { @extend :hover; }
+}
+
+address {  }
+
+b, strong {
+  font-weight: $boldFont;
+}
+
+html {  }
+
+body {
+  color: $black;
+  font-family: $font;
+  display: table;
+  font-size: 14px;
+  font-weight: $regularFont;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+blockquote {  }
+
+q { quotes: "" ""; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+button {
+  &:hover { }
+  &:active { }
+
+  // ------------------------------------------------------------------------
+  // Do not ignore the focus styles
+  // Most users navigate the website with the TAB key
+  // ------------------------------------------------------------------------
+  // A cool trick to solve the :focus styles for most elements is
+  // to extend the hover styles @extend :hover;
+  // ------------------------------------------------------------------------
+  &:focus { /* @extend :hover; */ }
+
+  // ------------------------------------------------------------------------
+  &:disabled { cursor: no-drop; opacity: .5 }
+}
+
+label {  }
+
+input {
+  &[type="checkbox"] {  }
+  &[type="button"] { @extend button; }
+  &[type="radio"] {  }
+
+  // ------------------------------------------------------------------------
+  // Extra input types just in case you need them
+  // ------------------------------------------------------------------------
+  &[type="color"] {  }
+  &[type="date"] {  }
+  &[type="email"] {  }
+  &[type="file"] {  }
+  &[type="number"] {  }
+  &[type="password"] {  }
+  &[type="range"] {  }
+  &[type="reset"] {  }
+  &[type="search"] {  }
+  &[type="tel"] {  }
+  &[type="time"] {  }
+  &[type="url"] {  }
+
+  // ------------------------------------------------------------------------
+  // If you need more input types check out the link below
+  // http://www.w3.org/wiki/HTML/Elements/input
+  // ------------------------------------------------------------------------
+  &:focus { /* @extend :hover; */ }
+}
+
+// ------------------------------------------------------------------------
+// Set the input placeholder color to something different that gray :)
+::-webkit-input-placeholder { color: $black; }
+:-moz-placeholder { color: $black; opacity:  1; }
+::-moz-placeholder { color: $black; opacity:  1; }
+:-ms-input-placeholder { color: $black; }
+
+select {
+  // ------------------------------------------------------------------------
+  // Remove default browser style for select
+  // Delete them if you don't need them...
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  option {  }
+
+  &:hover {  }
+  &:active {  }
+
+  &:focus { /* @extend :hover; */ }
+}
+
+textarea {
+  // ------------------------------------------------------------------------
+  // Do not use resize: none if the textarea box is smaller that 200-300 px
+  // Let the user resize it on the vertical and lock the width
+  // In combination with max-height it's a good combo
+  // ------------------------------------------------------------------------
+  // resize: horizontal; might break your page layout, use with care
+  resize: vertical;
+  width: 100%;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+em, i { font-style: italic; }
+
+// ------------------------------------------------------------------------
+// Generate headings based on the Fibonacci row
+// Go crazy!
+// ------------------------------------------------------------------------
+@each $header, $values in (
+  // ------------------------------------------------------------------------
+  // H1 font-szie, font-weight, text-transfrom
+  // you can add more values and get them with nth($valuse, #no)
+  // ------------------------------------------------------------------------
+
+  h1: 89 $thinFont uppercase,
+  h2: 55 $boldFont uppercase,
+  h3: 21 $regularFont uppercase,
+  h4: 13 $regularFont normal,
+  h5: 13 $regularFont normal,
+  h6: 13 $regularFont normal) {
+
+  #{$header} {
+    font-size: #{nth($values, 1)}px; // font-size in px as fallback
+    font-size: #{nth($values, 1) * .1}rem; // font-size in rem
+    font-weight: nth($values, 2);
+    text-transform: nth($values, 3);
+
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -ms-font-feature-settings: "liga", "dlig";
+    -webkit-font-feature-settings: "liga", "dlig";
+    -o-font-feature-settings: "liga", "dlig";
+    font-feature-settings: "liga", "dlig";
+  }
+}
+
+img { -ms-interpolation-mode: bicubic; }
+
+nav {
+  li {  }
+}
+
+p { margin: 1em 0; }
+
+pre, code { font-family: Monaco, Courier, monospace; }
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+table {
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+}
+
+u {
+  text-decoration: underline;
+}
+
+ul, ol {
+  // ------------------------------------------------------------------------
+  // We don't need list-style on every ul or ol
+  // Default will be none
+  // ------------------------------------------------------------------------
+  list-style: none;
+}
+
+li {  }
+
+// ------------------------------------------------------------------------
+// Custom styles
+// Fixing various corss browser display issues and the clearfix issue :)
+// :before and :after will be used only to do awesome tricks not to fix the lyout :)
+// ------------------------------------------------------------------------
+aside,
+div,
+dl,
+fieldset,
+footer,
+form,
+header,
+iframe,
+main,
+nav,
+ul,
+ol,
+section,
+table {
+  clear: both;
+  float: left;
+  width: 100%;
+}
