@@ -72,15 +72,34 @@ var CssAnalyzer = function() {
   // The list with the selectors found after analyzing will go here
   this.selectors = [];
 
-  /**
-   * A simple Selector class to keep data about a selector
-   * @param {integer} line
-   * @param {string}  selector
-   */
-  this.Selector = function(line, selector) {
-    this.line = typeof line !== "undefined" ? line : NaN;
-    this.selector = typeof line !== "undefined" ? selector : "";
-  }
+  // All the possible pseudo-elements, needed to calculate the specificity
+  this.pseudoElements = ["after", "before", "first-letter", "first-line", "selection", "backdrop"];
+
+  // There are 4 levels of specificity, but one of them is inline styles and that one does not apply
+  // on css files. Therefore, we need to calculate the following 3 levels (in order of magnitude):
+  //   1. ID selectors
+  //   2. Class, attribute and pseudo-class
+  //   3. Element and pseudo-element selector
+  // We're going to write an array of regexes for each level
+  this.specPatterns = [
+    // Level 1: 100 points
+    [
+      /^#/g          // ID
+    ],
+
+    // Level 2: 10 points
+    [
+      /\./g,         // class
+      /\[.+\]/g,     // attribute
+      /[^:]:[^:]/g   // pseudo-class
+    ],
+
+    // Level 3: 1 point
+    [
+      /^[a-z]/g,     // element
+      /::/g,         // pseudo-element
+    ]
+  ];
 
   // Run the main constructor, which will load the file and run the parse method on its content
   Analyzer.apply(this, arguments);
@@ -88,6 +107,19 @@ var CssAnalyzer = function() {
 
 // Inherits the basic Analyzer class
 CssAnalyzer.prototype = inherit(Analyzer.prototype);
+
+
+/**
+ * A simple Selector class to keep data about a selector
+ * @param {integer} line The line on which the selector was found
+ * @param {string}  selector The actual selector
+ * @param {integer} specificity The specificity of the selector
+ */
+CssAnalyzer.prototype.Selector = function(line, selector, specificity) {
+  this.line = typeof line !== "undefined" ? line : NaN;
+  this.selector = typeof line !== "undefined" ? selector : "";
+  this.specificity = typeof specificity !== "undefined" ? specificity : NaN;
+}
 
 /**
  * Parses the content of the file
@@ -135,15 +167,47 @@ CssAnalyzer.prototype.parse = function(content) {
     if(selectors.length) {
       selectors = selectors.split(',');
       for(var j=0; j<selectors.length; j++) {
-        var s = new this.Selector(i, this.trim(selectors[j]));
-        this.selectors.push(s);
+        var selector = this.trim(selectors[j]);
+        var specificity = this.calculateSpecificity(selector);
+        this.selectors.push(new this.Selector(i, selector, specificity));
+        console.log(selector + " - " + specificity);
       }
     }
   }
 
   // By this point this.selectors will contain all the selectors from the css file and the line
   // on which they are written
-  // To check it out simply console.log(this.selectors)
+  // To check it out simply
+  // console.log(this.selectors);
+};
+
+/**
+ * Calculates the specificity of a selector
+ * @param  {string} selector The selector on which to calculate the specificity on
+ * @return {integer}         The specificity of the given selector
+ */
+CssAnalyzer.prototype.calculateSpecificity = function(selector) {
+  var specificity = 0;
+
+  // First, we make sure that all the pseudo-elements are starting with "::" instead of ":"
+  // to be able to differentiate between pseudo-elements and pseudo-classes
+  for(var i=0; i<this.pseudoElements.length; i++) {
+    selector = selector.replace(new RegExp("([^:]):" + this.pseudoElements[i], "g"), "$1::" + this.pseudoElements[i]);
+  }
+
+  // We can now split the selector by " " and calculate the specificity
+  var splitted = selector.split(/ |\+/);
+  for(var i=0; i<splitted.length; i++) {
+    // Go over each level and add its value to the specificity
+    for(var level=0; level<this.specPatterns.length; level++) {
+      for(var j=0; j<this.specPatterns[level].length; j++) {
+        var matches = (splitted[i].match(this.specPatterns[level][j]) || []).length;
+        specificity += matches * Math.pow(10, 2 - level);
+      }
+    }
+  }
+
+  return specificity;
 };
 
 var analyzer = new CssAnalyzer('/style.css');

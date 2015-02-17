@@ -2,3 +2,4 @@ stylesheets/css
 .sass-cache
 node_modules
 .css-cache
+dist/
