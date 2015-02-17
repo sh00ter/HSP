@@ -72,8 +72,6 @@ var CssAnalyzer = function() {
   // The list with the selectors found after analyzing will go here
   this.selectors = [];
 
-  Analyzer.apply(this, arguments);
-
   /**
    * A simple Selector class to keep data about a selector
    * @param {integer} line
@@ -83,6 +81,9 @@ var CssAnalyzer = function() {
     this.line = typeof line !== "undefined" ? line : NaN;
     this.selector = typeof line !== "undefined" ? selector : "";
   }
+
+  // Run the main constructor, which will load the file and run the parse method on its content
+  Analyzer.apply(this, arguments);
 };
 
 // Inherits the basic Analyzer class
@@ -139,6 +140,10 @@ CssAnalyzer.prototype.parse = function(content) {
       }
     }
   }
+
+  // By this point this.selectors will contain all the selectors from the css file and the line
+  // on which they are written
+  // To check it out simply console.log(this.selectors)
 };
 
 var analyzer = new CssAnalyzer('/style.css');
