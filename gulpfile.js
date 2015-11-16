@@ -53,11 +53,11 @@ gulp.task('scripts', function() {
             insertGlobals : true,
             debug : !gulp.env.production
         }))
-        .pipe(gulp.dest('dist/scripts'))
+        .pipe(gulp.dest('dist/'))
         // Scripts for Production Env.
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/scripts'))
+        .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
 });
 
@@ -121,7 +121,7 @@ gulp.task('connect-dev', function() {
 // Build for production ----------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------
 gulp.task('build-production', function() {
-    gulp.start('styles', 'scripts', 'html-production', 'images', 'connect-dist'); // Run $ gulp clean-dist when ready for production
+    gulp.start('styles', 'compress-styles', 'scripts', 'compress-scripts', 'html-production', 'compress-html', 'images', 'connect-dist'); // Run $ gulp clean-dist when ready for production
 });
 
 // -------------------------------------------------------------------------------------------------------------------------
@@ -156,4 +156,31 @@ gulp.task('clean', function(cb) {
 // -------------------------------------------------------------------------------------------------------------------------
 gulp.task('clean-dist', function() {
     del(["dist/*.map", 'dist/style.css', 'dist/scripts/main.js'])
+});
+
+// -------------------------------------------------------------------------------------------------------------------------
+// Compress scripts for PRODUCTION -----------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------
+gulp.task('compress-scripts', function() {
+    gulp.src('dist/*.js')
+    .pipe(gzip())
+    .pipe(gulp.dest('dist/'));
+});
+
+// -------------------------------------------------------------------------------------------------------------------------
+// Compress styles for PRODUCTION ------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------
+gulp.task('compress-styles', function() {
+    gulp.src('dist/*.css')
+    .pipe(gzip())
+    .pipe(gulp.dest('dist/'));
+});
+
+// -------------------------------------------------------------------------------------------------------------------------
+// Compress html for PRODUCTION --------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------
+gulp.task('compress-html', function() {
+    gulp.src('dist/*.html')
+    .pipe(gzip())
+    .pipe(gulp.dest('dist/'));
 });
