@@ -7,16 +7,9 @@
 // Note!!!
 // For fixed width layouts we recomend using a container
 // We use .inside, but you can set the class name to rainbow if you like :)
-.inside {
-  clear: none;
-  float: none;
-  margin: 0 auto;
-  width: $mainSiteWidth; // establish a layout context
-}
+.inside { }
 
-header {
-  &[role="complementary"] { }
-}
+header { }
 
 main { }
 
@@ -27,7 +20,5 @@ article {
 }
 
 section {  }
-
 aside {  }
-
 footer {  }
