@@ -1,7 +1,7 @@
-susy-starter-pack
+HSP
 =================
 
-Susy SCSS starter pack
+HTML starter pack
 
 Setup project
 

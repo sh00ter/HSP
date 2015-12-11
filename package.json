@@ -1,7 +1,7 @@
 {
-  "name": "susy-starter-pack",
+  "name": "HSP",
   "version": "0.0.0",
-  "description": "susy-starter-pack =================",
+  "description": "HTML starter pack =================",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -32,12 +32,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sh00ter/susy-starter-pack.git"
+    "url": "https://github.com/sh00ter/HSP.git"
   },
   "author": "Bogdan Balc, Paul Axente, Adi Ulici",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sh00ter/susy-starter-pack/issues"
+    "url": "https://github.com/sh00ter/HSP/issues"
   },
-  "homepage": "https://github.com/sh00ter/susy-starter-pack"
+  "homepage": "https://github.com/sh00ter/HSP"
 }
