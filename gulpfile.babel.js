@@ -14,7 +14,7 @@ gulp.task('styles', () => {
     gulp.src('src/scss/**/*.scss')
         // Styles for Dev. Env.
         .pipe($.plumber())
-        .pipe($.rubySass({sourcemap: true, sourcemapPath: 'scss'}))
+        .pipe($.rubySass({sourcemapPath: 'scss'}))
         .pipe($.autoprefixer('last 2 version', '> 5%', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'ios 7', 'android 4'))
         .pipe(gulp.dest('dist/'))
         // Styles for Production Env.
