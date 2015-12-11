@@ -2,3 +2,6 @@ stylesheets/css
 .sass-cache
 node_modules
 .css-cache
+.tags
+.tags_sorted_by_file
+dist/
