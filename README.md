@@ -17,7 +17,7 @@ From version 3.9 gulpfiles can contain ES6 syntax and gulp will use Babel to com
 
 ### Using global gulp
 
-If your global gulp is at least version 3.9 than you can use it to run the project directly. Just run `gulp start-dev` to start a simple webserver, livereloading with browserSync and watch over the scss and js files.
+If your global gulp is at least version 3.9 then you can use it to run the project directly. Just run `gulp start-dev` to start a simple webserver, livereloading (using livereload) and watch over the scss and js files.
 
 ### Using local gulp
 
