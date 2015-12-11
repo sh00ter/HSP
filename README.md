@@ -23,8 +23,8 @@ If your global gulp is at least version 3.9 than you can use it to run the proje
 
 If your global gulp version is lower than 3.9 and you cannot update it, than you can use the local gulp version. We recommend this version because this way you can use different version of gulp on different projects. There are two ways to use your local gulp binary:
 
-  # Use the scripts from package.json. There is already a script created called `start-dev` which just runs `gulp start-dev`. By running gulp using these scripts, npm will use the local version installed in node_modules
-  # The local binary for gulp can be found in `node_modules/.bin/gulp`. You can use this binary to run your local gulp: `./node_modules/.bin/gulp start-dev`. As a quick tip, you can create an alias for `./node_modules/.bin/gulp` so you don't have to write it everytime. In OS X, for example, just add this to `~/.bash_profile`: `alias gulpl=./node_modules/.bin/gulp`, and now you can run `gulpl start-dev` to run the local gulp.
+  1. Use the scripts from package.json. There is already a script created called `start-dev` which just runs `gulp start-dev`. By running gulp using these scripts, npm will use the local version installed in node_modules
+  2. The local binary for gulp can be found in `node_modules/.bin/gulp`. You can use this binary to run your local gulp: `./node_modules/.bin/gulp start-dev`. As a quick tip, you can create an alias for `./node_modules/.bin/gulp` so you don't have to write it everytime. In OS X, for example, just add this to `~/.bash_profile`: `alias gulpl=./node_modules/.bin/gulp`, and now you can run `gulpl start-dev` to run the local gulp.
 
 ## CTags
 
