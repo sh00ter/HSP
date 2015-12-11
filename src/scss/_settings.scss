@@ -1,0 +1,60 @@
+// ------------------------------------------------------------------------
+// Colors variables -------------------------------------------------------
+// ------------------------------------------------------------------------
+$black: #2a2a2a;
+$blue: #2196F3;
+$cyan: #00ACC1;
+$green: #4CAF50;
+$indigo: #3F51B5;
+$lightBlue: #8e979f;
+$orange: #FBC02D;
+$red: #f44336;
+$white: #FAFAFA;
+// ------------------------------------------------------------------------
+// Font family variables --------------------------------------------------
+// ------------------------------------------------------------------------
+$fontSansSerif: Helvetica, Arial, sans-serif;
+$fontSerif: Georgia, Times, serif;
+// ------------------------------------------------------------------------
+// Font weight notation convention fonteightFont --------------------------
+// ------------------------------------------------------------------------
+$thinFont: 100;
+$lightFont: 300;
+$regularFont: 400;
+$boldFont: 700;
+$heavyFont: 900;
+// ------------------------------------------------------------------------
+// Media Queries ----------------------------------------------------------
+// ------------------------------------------------------------------------
+$MQs: true;
+@mixin bp($point) {
+  @if ($MQs) {
+    $bp-small: "(min-width: 24em)";
+    $bp-med: "(min-width: 46.8em)";
+    $bp-large: "(min-width: 50em)";
+    $bp-xl: "(min-width: 73em)";
+
+    @if $point == small {
+      @media only screen and #{$bp-small} { @content; }
+    }
+    @else if $point == med {
+      @media only screen and #{$bp-med} { @content; }
+    }
+    @else if $point == large {
+      @media only screen and #{$bp-large}  { @content; }
+    } @else if $point == xl {
+      @media only screen and #{$bp-xl}  { @content; }
+    }
+  }
+}
+
+// ------------------------------------------------------------------------
+// Image Path -------------------------------------------------------------
+// ------------------------------------------------------------------------
+$http_path: "http://localhost:8002/";
+$http_images_path: "images/";
+
+@function image-url($relative-url){
+  $tmpUrl: $http_path + $http_images_path + $relative-url;
+  @return url($tmpUrl);
+}
